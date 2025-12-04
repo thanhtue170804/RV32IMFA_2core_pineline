@@ -1,0 +1,55 @@
+
+module ALU_Decoder(
+    // Các input điều khiển ALU
+    input [1:0] ALUOp,   // Mã điều khiển ALU từ Main Decoder
+        // 2'b00: Lệnh không phải R-type (load/store)
+        // 2'b01: Lệnh branch
+        // 2'b10: Lệnh R-type
+
+    input [2:0] funct3,  // Bits phụ chi tiết của lệnh
+        // Xác định các biến thể phép toán
+
+    input [6:0] funct7,  // Bits mở rộng của lệnh
+        // Phân biệt các phiên bản chi tiết của lệnh
+
+    input [6:0] op,      // Opcode của lệnh
+        // Xác định loại lệnh
+
+    // Output điều khiển ALU
+    output [2:0] ALUControl  // Mã điều khiển hoạt động ALU
+);
+    // Logic giải mã điều khiển ALU
+    assign ALUControl = 
+        // Chế độ mặc định (load/store) - phép cộng
+        (ALUOp == 2'b00) ? 3'b000 :  
+        
+        // Chế độ branch - phép trừ để so sánh
+        (ALUOp == 2'b01) ? 3'b001 :  
+        
+        // Chế độ R-type - các phép toán chi tiết
+        
+        // Phép trừ (sub) - khi bit đặc biệt đúng
+        ((ALUOp == 2'b10) & (funct3 == 3'b000) & ({op[5],funct7[5]} == 2'b11)) ? 3'b001 : 
+        
+        // Phép cộng (add)
+        ((ALUOp == 2'b10) & (funct3 == 3'b000) & ({op[5],funct7[5]} != 2'b11)) ? 3'b000 : 
+        
+        // So sánh có dấu (SLT)
+        ((ALUOp == 2'b10) & (funct3 == 3'b010)) ? 3'b101 : 
+        
+        // Phép OR
+        ((ALUOp == 2'b10) & (funct3 == 3'b110)) ? 3'b011 : 
+        
+        // Phép AND
+        ((ALUOp == 2'b10) & (funct3 == 3'b111)) ? 3'b010 : 
+        
+        // Mặc định
+        3'b000;
+
+    // Mã điều khiển ALU:
+    // 3'b000: Phép cộng
+    // 3'b001: Phép trừ
+    // 3'b010: Phép AND
+    // 3'b011: Phép OR
+    // 3'b101: So sánh có dấu
+endmodule

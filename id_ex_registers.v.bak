@@ -1,0 +1,77 @@
+module id_ex_registers(
+    // Tín hiệu điều khiển
+    input clk, rst,
+    input stall,
+    input flush,
+    
+    // Đầu vào tín hiệu điều khiển từ Decode
+    input RegWriteD, ALUSrcD, MemWriteD, ResultSrcD, BranchD,
+    input [2:0] ALUControlD,
+    
+    // Đầu vào dữ liệu từ Decode
+    input [31:0] RD1_D, RD2_D, Imm_Ext_D, PCD, PCPlus4D,
+    input [4:0] RD_D, RS1_D, RS2_D,
+    
+    // Đầu ra tín hiệu điều khiển đến Execute
+    output reg RegWriteE, ALUSrcE, MemWriteE, ResultSrcE, BranchE,
+    output reg [2:0] ALUControlE,
+    
+    // Đầu ra dữ liệu đến Execute
+    output reg [31:0] RD1_E, RD2_E, Imm_Ext_E, PCE, PCPlus4E,
+    output reg [4:0] RD_E, RS1_E, RS2_E
+);
+
+    always @(posedge clk or negedge rst) begin
+        if(rst == 1'b0) begin
+            // Logic reset
+            RegWriteE <= 1'b0;
+            ALUSrcE <= 1'b0;
+            MemWriteE <= 1'b0;
+            ResultSrcE <= 1'b0;
+            BranchE <= 1'b0;
+            ALUControlE <= 3'b000;
+            RD1_E <= 32'h00000000; 
+            RD2_E <= 32'h00000000; 
+            Imm_Ext_E <= 32'h00000000;
+            RD_E <= 5'h00;
+            PCE <= 32'h00000000; 
+            PCPlus4E <= 32'h00000000;
+            RS1_E <= 5'h00;
+            RS2_E <= 5'h00;
+        end
+        else if(flush) begin
+            // Xóa thanh ghi khi có flush
+            RegWriteE <= 1'b0;
+            ALUSrcE <= 1'b0;
+            MemWriteE <= 1'b0;
+            ResultSrcE <= 1'b0;
+            BranchE <= 1'b0;
+            ALUControlE <= 3'b000;
+            RD1_E <= 32'h00000000; 
+            RD2_E <= 32'h00000000; 
+            Imm_Ext_E <= 32'h00000000;
+            RD_E <= 5'h00;
+            PCE <= 32'h00000000; 
+            PCPlus4E <= 32'h00000000;
+            RS1_E <= 5'h00;
+            RS2_E <= 5'h00;
+        end
+        else if(!stall) begin
+            // Cập nhật khi không bị dừng
+            RegWriteE <= RegWriteD;
+            ALUSrcE <= ALUSrcD;
+            MemWriteE <= MemWriteD;
+            ResultSrcE <= ResultSrcD;
+            BranchE <= BranchD;
+            ALUControlE <= ALUControlD;
+            RD1_E <= RD1_D; 
+            RD2_E <= RD2_D; 
+            Imm_Ext_E <= Imm_Ext_D;
+            RD_E <= RD_D;
+            PCE <= PCD; 
+            PCPlus4E <= PCPlus4D;
+            RS1_E <= RS1_D;
+            RS2_E <= RS2_D;
+        end
+    end
+endmodule

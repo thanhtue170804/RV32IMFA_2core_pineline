@@ -1,0 +1,147 @@
+// ============================================================================
+// FPU_rv32imf.v
+// Floating Point Unit cho RV32F (IEEE-754 single precision, behavioral model)
+
+// ============================================================================
+module FPU (
+    input  wire [31:0] A,           // toán hạng 1 (float)
+    input  wire [31:0] B,           // toán hạng 2 (float)
+    input  wire [31:0] int_in,      // integer input (cho chuyển đổi)
+    input  wire [4:0]  FPUControl,  // mã điều khiển (từ FPU_Decoder)
+
+    output wire        Zero,
+    output wire        Negative,
+    output wire        OverFlow,    // overflow flag (mang tính mô phỏng)
+    output wire [31:0] Result
+);
+
+    // -------------------------------
+    // Mã điều khiển (FPUControl)
+    // -------------------------------
+    localparam FADD_S    = 5'b00000;
+    localparam FSUB_S    = 5'b00001;
+    localparam FMUL_S    = 5'b00010;
+    localparam FDIV_S    = 5'b00011;
+    localparam FSQRT_S   = 5'b00100;
+
+    localparam FSGNJ_S   = 5'b00101;
+    localparam FSGNJN_S  = 5'b00110;
+    localparam FSGNJX_S  = 5'b00111;
+
+    localparam FEQ_S     = 5'b01000;
+    localparam FLT_S     = 5'b01001;
+    localparam FLE_S     = 5'b01010;
+
+    localparam FCVT_W_S  = 5'b01100;
+    localparam FCVT_WU_S = 5'b01101;
+    localparam FCVT_S_W  = 5'b01110;
+    localparam FCVT_S_WU = 5'b01111;
+
+    localparam FMV_X_W   = 5'b10000;
+    localparam FMV_W_X   = 5'b10001;
+    localparam FCLASS_S  = 5'b10010;
+
+    // -------------------------------
+    // Biến trung gian kiểu float
+    // -------------------------------
+    shortreal fa, fb, fres;
+    reg [31:0] result_internal;
+    reg overflow_flag;
+
+    always @(*) begin
+        // chuyển bit pattern sang float IEEE-754
+        fa = $bitstoshortreal(A);
+        fb = $bitstoshortreal(B);
+        fres = 0.0;
+        result_internal = 32'h00000000;
+        overflow_flag = 1'b0;
+
+        case (FPUControl)
+            // -------------------------
+            // Nhóm số học cơ bản
+            // -------------------------
+            FADD_S: begin
+                fres = fa + fb;
+            end
+
+            FSUB_S: begin
+                fres = fa - fb;
+            end
+
+            FMUL_S: begin
+                fres = fa * fb;
+            end
+
+            FDIV_S: begin
+                fres = fa / fb;
+            end
+
+            FSQRT_S: begin
+                fres = $sqrt(fa);
+            end
+
+            // -------------------------
+            // Gán dấu
+            // -------------------------
+            FSGNJ_S:  result_internal = {B[31], A[30:0]};
+            FSGNJN_S: result_internal = {~B[31], A[30:0]};
+            FSGNJX_S: result_internal = {A[31]^B[31], A[30:0]};
+
+            // -------------------------
+            // So sánh
+            // -------------------------
+            FEQ_S: result_internal = {31'b0, (fa == fb)};
+            FLT_S: result_internal = {31'b0, (fa <  fb)};
+            FLE_S: result_internal = {31'b0, (fa <= fb)};
+
+            // -------------------------
+            // Chuyển đổi float <-> int
+            // -------------------------
+            FCVT_W_S:  result_internal = $rtoi(fa);  // float → int
+            FCVT_WU_S: result_internal = $rtoi(fa);
+            FCVT_S_W:  fres = int_in;                // int → float
+            FCVT_S_WU: fres = int_in;
+
+            // -------------------------
+            // Di chuyển bit (bitwise move)
+            // -------------------------
+            FMV_X_W: result_internal = A;       // float → int bitwise
+            FMV_W_X: result_internal = int_in;  // int → float bitwise
+
+            // -------------------------
+            // Phân loại (FCLASS)
+            // -------------------------
+            FCLASS_S: begin
+                shortreal f = fa;
+                // đơn giản hoá phân loại
+                if ($isnan(f))       result_internal = 32'h00000100; // NaN
+                else if (f == 0.0)   result_internal = 32'h00000008; // zero
+                else if (f < 0.0)    result_internal = 32'h00000001; // neg
+                else                 result_internal = 32'h00000010; // pos
+            end
+
+            default: fres = 0.0;
+        endcase
+
+        // -------------------------
+        // Ghi kết quả float về bit pattern nếu là phép toán float
+        // -------------------------
+        if ((FPUControl <= FSQRT_S) || 
+            (FPUControl == FCVT_S_W) || 
+            (FPUControl == FCVT_S_WU))
+            result_internal = $shortrealtobits(fres);
+
+        // overflow flag mô phỏng (không chuẩn)
+        if (fres > 3.402823e+38 || fres < -3.402823e+38)
+            overflow_flag = 1'b1;
+    end
+
+    // -------------------------------
+    // Output signals
+    // -------------------------------
+    assign Result   = result_internal;
+    assign Zero     = (result_internal == 32'h00000000);
+    assign Negative = result_internal[31];
+    assign OverFlow = overflow_flag;
+
+endmodule

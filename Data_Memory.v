@@ -1,0 +1,46 @@
+// Module Bộ Nhớ Dữ Liệu Trong Kiến Trúc RISC-V
+module Data_Memory(
+    // Các tín hiệu điều khiển
+    input clk,       // Xung clock - đồng bộ hóa các hoạt động
+    input rst,       // Tín hiệu reset - đưa module về trạng thái ban đầu
+
+    // Tín hiệu điều khiển ghi
+    input WE,        // Write Enable - cho phép ghi dữ liệu
+
+    // Đầu vào dữ liệu
+    input [31:0] A,  // Địa chỉ bộ nhớ 32-bit
+    input [31:0] WD, // Dữ liệu ghi (Write Data)
+
+    // Đầu ra dữ liệu
+    output [31:0] RD // Dữ liệu đọc (Read Data)
+);
+    // Khai báo mảng bộ nhớ
+    // - 1024 từ (word)
+    // - Mỗi từ 32-bit
+    // - Tổng dung lượng: 4096 byte
+    reg [31:0] mem [1023:0];
+
+    // Logic ghi dữ liệu
+    // - Chỉ ghi khi WE = 1 (Write Enable)
+    // - Ghi đồng bộ theo cạnh rising của clock
+    always @(posedge clk) begin
+        // Kiểm tra tín hiệu cho phép ghi
+        if (WE)
+            // Ghi dữ liệu WD vào địa chỉ A
+            mem[A] <= WD;
+    end
+
+    // Logic đọc dữ liệu
+    // - Nếu reset: trả về 0
+    // - Ngược lại: đọc dữ liệu tại địa chỉ A
+    assign RD = (~rst) ? 32'd0 : mem[A];
+
+    // Khởi tạo giá trị ban đầu cho bộ nhớ
+    // - Thường dùng để nạp chương trình hoặc giá trị mặc định
+    initial begin
+        // Đặt giá trị ban đầu cho địa chỉ 0
+        mem[0] = 32'h00000000;
+
+       
+    end
+endmodule

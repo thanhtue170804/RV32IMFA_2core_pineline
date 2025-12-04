@@ -1,0 +1,41 @@
+// FP_Register_File.v
+// 32 x 32-bit floating-point registers (f0..f31)
+// - 2 read ports (combinational)
+// - 1 write port (sync on posedge clk)
+// - synchronous reset (active high)
+// - simple write-through forwarding: read returns wd if (we && wa == ra)
+
+module FP_Register_File (
+    input  wire        clk,
+    input  wire        reset,    // synchronous active-high reset
+    input  wire        we,       // write enable (from WB stage)
+    input  wire [4:0]  ra1,      // read address 1
+    input  wire [4:0]  ra2,      // read address 2
+    input  wire [4:0]  wa,       // write address
+    input  wire [31:0] wd,       // write data (bit-pattern IEEE-754)
+    output wire [31:0] rd1,      // read data 1
+    output wire [31:0] rd2       // read data 2
+);
+
+    // register array
+    reg [31:0] fregs [0:31];
+    integer i;
+
+    // synchronous write and reset
+    always @(posedge clk) begin
+        if (reset) begin
+            for (i = 0; i < 32; i = i + 1) fregs[i] <= 32'h0000_0000;
+        end else begin
+            if (we) begin
+                fregs[wa] <= wd;
+            end
+        end
+    end
+
+    // combinational read with simple write-through forwarding
+    // If a write to same register occurs in the same cycle (we==1 && wa==ra),
+    // return wd so that a read in the same cycle can see new value.
+    assign rd1 = (we && (wa == ra1)) ? wd : fregs[ra1];
+    assign rd2 = (we && (wa == ra2)) ? wd : fregs[ra2];
+
+endmodule

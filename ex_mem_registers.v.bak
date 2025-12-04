@@ -1,0 +1,54 @@
+module ex_mem_registers(
+    // Tín hiệu điều khiển
+    input clk, rst,
+    input stall,
+    input flush,
+    
+    // Đầu vào tín hiệu điều khiển từ Execute
+    input RegWriteE, MemWriteE, ResultSrcE,
+    
+    // Đầu vào dữ liệu từ Execute
+    input [4:0] RD_E,
+    input [31:0] PCPlus4E, ALU_ResultE, WriteDataE,
+    
+    // Đầu ra tín hiệu điều khiển đến Memory
+    output reg RegWriteM, MemWriteM, ResultSrcM,
+    
+    // Đầu ra dữ liệu đến Memory
+    output reg [4:0] RD_M,
+    output reg [31:0] PCPlus4M, ALU_ResultM, WriteDataM
+);
+
+    always @(posedge clk or negedge rst) begin
+        if(rst == 1'b0) begin
+            // Logic reset
+            RegWriteM <= 1'b0;
+            MemWriteM <= 1'b0;
+            ResultSrcM <= 1'b0;
+            RD_M <= 5'h00;
+            PCPlus4M <= 32'h00000000;
+            ALU_ResultM <= 32'h00000000;
+            WriteDataM <= 32'h00000000;
+        end
+        else if(flush) begin
+            // Xóa thanh ghi khi có flush
+            RegWriteM <= 1'b0;
+            MemWriteM <= 1'b0;
+            ResultSrcM <= 1'b0;
+            RD_M <= 5'h00;
+            PCPlus4M <= 32'h00000000;
+            ALU_ResultM <= 32'h00000000;
+            WriteDataM <= 32'h00000000;
+        end
+        else if(!stall) begin
+            // Cập nhật khi không bị dừng
+            RegWriteM <= RegWriteE;
+            MemWriteM <= MemWriteE;
+            ResultSrcM <= ResultSrcE;
+            RD_M <= RD_E;
+            PCPlus4M <= PCPlus4E;
+            ALU_ResultM <= ALU_ResultE;
+            WriteDataM <= WriteDataE;
+        end
+    end
+endmodule

@@ -1,0 +1,18 @@
+module writeback_stage(
+    // Đầu vào điều khiển
+    input ResultSrcW,
+    
+    // Đầu vào dữ liệu
+    input [31:0] ALU_ResultW, ReadDataW,
+    
+    // Đầu ra kết quả
+    output [31:0] ResultW
+);
+    // Multiplexer chọn nguồn ghi ngược lại thanh ghi
+    mux result_mux (
+        .a(ALU_ResultW),
+        .b(ReadDataW),
+        .s(ResultSrcW),
+        .c(ResultW)
+    );
+endmodule

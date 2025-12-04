@@ -1,0 +1,50 @@
+// Module Đơn Vị Logic Số Học (Arithmetic Logic Unit - ALU)
+module ALU(
+    input [31:0] A,             // Toán hạng thứ nhất 32-bit
+    input [31:0] B,             // Toán hạng thứ hai 32-bit
+    input [2:0] ALUControl,     // Mã điều khiển hoạt động ALU
+
+    output Carry,                // Cờ nhớ
+    output OverFlow,             // Cờ tràn số
+    output Zero,                 // Cờ zero (kết quả = 0)
+    output Negative,             // Cờ âm (bit dấu của kết quả)
+    output [31:0] Result         // Kết quả tính toán
+);
+    // Dây kết nối nội bộ
+    wire Cout;                   // Bit nhớ ngoài
+    wire [31:0] Sum;             // Kết quả phép cộng/trừ
+
+    // Tính toán giá trị Sum (Cộng/Trừ)
+    // Nếu ALUControl[0] = 0: Cộng (A + B)
+    // Nếu ALUControl[0] = 1: Trừ (A - B) bằng cách cộng A với bù hai của B
+    assign Sum = (ALUControl[0] == 1'b0) ? A + B :    // Phép cộng
+                                          (A + ((~B)+1)) ; // Phép trừ (A - B)
+
+    // Khối gán kết quả dựa trên mã điều khiển ALU
+    assign {Cout,Result} = 
+        (ALUControl == 3'b000) ? Sum :         // Phép cộng
+        (ALUControl == 3'b001) ? Sum :         // Phép trừ
+        (ALUControl == 3'b010) ? A & B :       // Phép AND
+        (ALUControl == 3'b011) ? A | B :       // Phép OR
+        (ALUControl == 3'b101) ? {{32{1'b0}},(Sum[31])} : // So sánh nhỏ hơn (set less than)
+        {33{1'b0}};                            // Mặc định (0)
+
+    // Tính toán cờ tràn số (Overflow)
+    // Xảy ra khi:
+    // 1. Dấu của số hạng khác nhau
+    // 2. Dấu của kết quả khác với dấu của các số hạng
+    // 3. Không phải là phép so sánh
+    assign OverFlow = ((Sum[31] ^ A[31]) & 
+                      (~(ALUControl[0] ^ B[31] ^ A[31])) &
+                      (~ALUControl[1]));
+
+    // Cờ nhớ chỉ được kích hoạt khi không phải phép so sánh
+    assign Carry = ((~ALUControl[1]) & Cout);
+
+    // Cờ Zero: Kiểm tra xem kết quả có phải toàn bit 0 không
+    // Sử dụng phép AND khử (~) để kiểm tra
+    assign Zero = &(~Result);
+
+    // Cờ Negative: Bit dấu của kết quả (bit cao nhất)
+    assign Negative = Result[31];
+endmodule

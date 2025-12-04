@@ -1,0 +1,1026 @@
+# Reading C:/intelFPGA/18.1/modelsim_ase/tcl/vsim/pref.tcl
+# ERROR: No extended dataflow license exists
+# do RV32I_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA/18.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/FPU_Control_Unit.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:52 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/FPU_Control_Unit.v 
+# -- Compiling module FPU_Control_Unit
+# 
+# Top level modules:
+# 	FPU_Control_Unit
+# End time: 10:03:52 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/Sign_Unit.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:52 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/Sign_Unit.v 
+# -- Compiling module Sign_Unit
+# 
+# Top level modules:
+# 	Sign_Unit
+# End time: 10:03:52 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/NR_Iteration.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:52 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/NR_Iteration.v 
+# -- Compiling module NR_Iteration
+# 
+# Top level modules:
+# 	NR_Iteration
+# End time: 10:03:52 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/Normalizer.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:52 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/Normalizer.v 
+# -- Compiling module Normalizer
+# 
+# Top level modules:
+# 	Normalizer
+# End time: 10:03:52 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/Mantissa_Normalisation.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:52 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/Mantissa_Normalisation.v 
+# -- Compiling module Mantissa_Normalisation
+# 
+# Top level modules:
+# 	Mantissa_Normalisation
+# End time: 10:03:52 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/Mantissa_Multiplier.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:52 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/Mantissa_Multiplier.v 
+# -- Compiling module Mantissa_Multiplier
+# 
+# Top level modules:
+# 	Mantissa_Multiplier
+# End time: 10:03:52 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/FP_Sub.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:52 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/FP_Sub.v 
+# -- Compiling module FP_Sub
+# 
+# Top level modules:
+# 	FP_Sub
+# End time: 10:03:52 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/FP_Mul.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:52 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/FP_Mul.v 
+# -- Compiling module FP_Mul
+# 
+# Top level modules:
+# 	FP_Mul
+# End time: 10:03:52 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/FP_Div.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:52 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/FP_Div.v 
+# -- Compiling module FP_Div
+# 
+# Top level modules:
+# 	FP_Div
+# End time: 10:03:52 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/FP_Add.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:52 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/FP_Add.v 
+# -- Compiling module FP_Add
+# 
+# Top level modules:
+# 	FP_Add
+# End time: 10:03:53 on Dec 02,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/Floating_Seperation.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:53 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/Floating_Seperation.v 
+# -- Compiling module Floating_Seperation
+# 
+# Top level modules:
+# 	Floating_Seperation
+# End time: 10:03:53 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/Adder_Exponent_Bias.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:53 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/Adder_Exponent_Bias.v 
+# -- Compiling module Adder_Exponent_Bias
+# 
+# Top level modules:
+# 	Adder_Exponent_Bias
+# End time: 10:03:53 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/FPU.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:53 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/FPU.v 
+# -- Compiling module FPU
+# 
+# Top level modules:
+# 	FPU
+# End time: 10:03:53 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/FP_Register_File.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:53 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/FP_Register_File.v 
+# -- Compiling module FP_Register_File
+# 
+# Top level modules:
+# 	FP_Register_File
+# End time: 10:03:53 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/if_id_registers.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:53 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/if_id_registers.v 
+# -- Compiling module if_id_registers
+# 
+# Top level modules:
+# 	if_id_registers
+# End time: 10:03:53 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/id_ex_registers.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:53 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/id_ex_registers.v 
+# -- Compiling module id_ex_registers
+# 
+# Top level modules:
+# 	id_ex_registers
+# End time: 10:03:53 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/ex_mem_registers.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:53 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/ex_mem_registers.v 
+# -- Compiling module ex_mem_registers
+# 
+# Top level modules:
+# 	ex_mem_registers
+# End time: 10:03:53 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/mem_wb_registers.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:53 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/mem_wb_registers.v 
+# -- Compiling module mem_wb_registers
+# 
+# Top level modules:
+# 	mem_wb_registers
+# End time: 10:03:53 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/fetch_stage.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:53 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/fetch_stage.v 
+# -- Compiling module fetch_stage
+# 
+# Top level modules:
+# 	fetch_stage
+# End time: 10:03:53 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/decode_stage.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:53 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/decode_stage.v 
+# -- Compiling module decode_stage
+# 
+# Top level modules:
+# 	decode_stage
+# End time: 10:03:54 on Dec 02,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/execute_stage.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:54 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/execute_stage.v 
+# -- Compiling module execute_stage
+# 
+# Top level modules:
+# 	execute_stage
+# End time: 10:03:54 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/memory_stage.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:54 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/memory_stage.v 
+# -- Compiling module memory_stage
+# 
+# Top level modules:
+# 	memory_stage
+# End time: 10:03:54 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/writeback_stage.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:54 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/writeback_stage.v 
+# -- Compiling module writeback_stage
+# 
+# Top level modules:
+# 	writeback_stage
+# End time: 10:03:54 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/RV32I.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:54 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/RV32I.v 
+# -- Compiling module RV32I
+# 
+# Top level modules:
+# 	RV32I
+# End time: 10:03:54 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/hazard_control.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:54 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/hazard_control.v 
+# -- Compiling module hazard_control
+# 
+# Top level modules:
+# 	hazard_control
+# End time: 10:03:54 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/PC_module.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:54 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/PC_module.v 
+# -- Compiling module PC_module
+# 
+# Top level modules:
+# 	PC_module
+# End time: 10:03:54 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/mux.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:54 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/mux.v 
+# -- Compiling module mux
+# 
+# Top level modules:
+# 	mux
+# End time: 10:03:54 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/PC_Adder.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:54 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/PC_Adder.v 
+# -- Compiling module PC_Adder
+# 
+# Top level modules:
+# 	PC_Adder
+# End time: 10:03:54 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/Control_Unit.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:54 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/Control_Unit.v 
+# -- Compiling module Control_Unit
+# 
+# Top level modules:
+# 	Control_Unit
+# End time: 10:03:54 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/Main_Decoder.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:54 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/Main_Decoder.v 
+# -- Compiling module Main_Decoder
+# 
+# Top level modules:
+# 	Main_Decoder
+# End time: 10:03:55 on Dec 02,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/ALU_Decoder.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:55 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/ALU_Decoder.v 
+# -- Compiling module ALU_Decoder
+# 
+# Top level modules:
+# 	ALU_Decoder
+# End time: 10:03:55 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/Register_File.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:55 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/Register_File.v 
+# -- Compiling module Register_File
+# 
+# Top level modules:
+# 	Register_File
+# End time: 10:03:55 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/Sign_Extend.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:55 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/Sign_Extend.v 
+# -- Compiling module Sign_Extend
+# 
+# Top level modules:
+# 	Sign_Extend
+# End time: 10:03:55 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/ALU.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:55 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/ALU.v 
+# -- Compiling module ALU
+# 
+# Top level modules:
+# 	ALU
+# End time: 10:03:55 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/Data_Memory.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:55 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/Data_Memory.v 
+# -- Compiling module Data_Memory
+# 
+# Top level modules:
+# 	Data_Memory
+# End time: 10:03:55 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/hazard_unit.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:55 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/hazard_unit.v 
+# -- Compiling module hazard_unit
+# 
+# Top level modules:
+# 	hazard_unit
+# End time: 10:03:55 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/Instruction_Memory.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:55 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/Instruction_Memory.v 
+# -- Compiling module Instruction_Memory
+# 
+# Top level modules:
+# 	Instruction_Memory
+# End time: 10:03:55 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline {C:/altera/13.0sp1/RV32IM_pineline/RV32I_tb.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:03:55 on Dec 02,2025
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/altera/13.0sp1/RV32IM_pineline" C:/altera/13.0sp1/RV32IM_pineline/RV32I_tb.v 
+# -- Compiling module RV32I_tb
+# 
+# Top level modules:
+# 	RV32I_tb
+# End time: 10:03:55 on Dec 02,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneii_ver -L rtl_work -L work -voptargs="+acc"  RV32I_tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneii_ver -L rtl_work -L work -voptargs=""+acc"" RV32I_tb 
+# Start time: 10:03:56 on Dec 02,2025
+# Loading work.RV32I_tb
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.RV32I
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.fetch_stage
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.mux
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.PC_module
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.Instruction_Memory
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.PC_Adder
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.if_id_registers
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.decode_stage
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.Control_Unit
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.Main_Decoder
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.ALU_Decoder
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.FPU_Control_Unit
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.Register_File
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.FP_Register_File
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.Sign_Extend
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.id_ex_registers
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.execute_stage
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.ALU
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.FPU
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.FP_Add
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.FP_Sub
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.FP_Mul
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.Floating_Seperation
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.Adder_Exponent_Bias
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.Mantissa_Normalisation
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.Mantissa_Multiplier
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.Normalizer
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.Sign_Unit
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.FP_Div
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.NR_Iteration
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.ex_mem_registers
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.memory_stage
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.Data_Memory
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.mem_wb_registers
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.writeback_stage
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.hazard_unit
+# ** Error (suppressible): (vsim-19) Failed to access library 'cycloneii_ver' at "cycloneii_ver".
+# No such file or directory. (errno = ENOENT)
+# Loading work.hazard_control
+# ** Warning: (vsim-3017) C:/altera/13.0sp1/RV32IM_pineline/decode_stage.v(34): [TFMPC] - Too few port connections. Expected 15, found 10.
+#    Time: 0 ps  Iteration: 0  Instance: /RV32I_tb/dut/decode/control File: C:/altera/13.0sp1/RV32IM_pineline/Control_Unit.v
+# ** Warning: (vsim-3015) C:/altera/13.0sp1/RV32IM_pineline/decode_stage.v(34): [PCDPC] - Port size (3) does not match connection size (2) for port 'ImmSrc'. The port definition is at: C:/altera/13.0sp1/RV32IM_pineline/Control_Unit.v(18).
+#    Time: 0 ps  Iteration: 0  Instance: /RV32I_tb/dut/decode/control File: C:/altera/13.0sp1/RV32IM_pineline/Control_Unit.v
+# ** Warning: (vsim-3015) C:/altera/13.0sp1/RV32IM_pineline/decode_stage.v(34): [PCDPC] - Port size (2) does not match connection size (1) for port 'ResultSrc'. The port definition is at: C:/altera/13.0sp1/RV32IM_pineline/Control_Unit.v(15).
+#    Time: 0 ps  Iteration: 0  Instance: /RV32I_tb/dut/decode/control File: C:/altera/13.0sp1/RV32IM_pineline/Control_Unit.v
+# ** Warning: (vsim-3722) C:/altera/13.0sp1/RV32IM_pineline/decode_stage.v(34): [TFMPC] - Missing connection for port 'MemRead'.
+# ** Warning: (vsim-3722) C:/altera/13.0sp1/RV32IM_pineline/decode_stage.v(34): [TFMPC] - Missing connection for port 'Jump'.
+# ** Warning: (vsim-3722) C:/altera/13.0sp1/RV32IM_pineline/decode_stage.v(34): [TFMPC] - Missing connection for port 'MemOp'.
+# ** Warning: (vsim-3722) C:/altera/13.0sp1/RV32IM_pineline/decode_stage.v(34): [TFMPC] - Missing connection for port 'CSR'.
+# ** Warning: (vsim-3722) C:/altera/13.0sp1/RV32IM_pineline/decode_stage.v(34): [TFMPC] - Missing connection for port 'Fence'.
+# ** Warning: (vsim-3017) C:/altera/13.0sp1/RV32IM_pineline/Control_Unit.v(29): [TFMPC] - Too few port connections. Expected 16, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /RV32I_tb/dut/decode/control/md File: C:/altera/13.0sp1/RV32IM_pineline/Main_Decoder.v
+# ** Warning: (vsim-3722) C:/altera/13.0sp1/RV32IM_pineline/Control_Unit.v(29): [TFMPC] - Missing connection for port 'isFPU'.
+# ** Warning: (vsim-3722) C:/altera/13.0sp1/RV32IM_pineline/Control_Unit.v(29): [TFMPC] - Missing connection for port 'FPRegWrite'.
+# ** Warning: (vsim-3722) C:/altera/13.0sp1/RV32IM_pineline/Control_Unit.v(29): [TFMPC] - Missing connection for port 'FPMemRead'.
+# ** Warning: (vsim-3722) C:/altera/13.0sp1/RV32IM_pineline/Control_Unit.v(29): [TFMPC] - Missing connection for port 'FPMemWrite'.
+# ** Warning: (vsim-3015) C:/altera/13.0sp1/RV32IM_pineline/decode_stage.v(73): [PCDPC] - Port size (64) does not match connection size (32) for port 'WD3'. The port definition is at: C:/altera/13.0sp1/RV32IM_pineline/FP_Register_File.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /RV32I_tb/dut/decode/fprf File: C:/altera/13.0sp1/RV32IM_pineline/FP_Register_File.v
+# ** Warning: (vsim-3015) C:/altera/13.0sp1/RV32IM_pineline/decode_stage.v(73): [PCDPC] - Port size (64) does not match connection size (32) for port 'RD1'. The port definition is at: C:/altera/13.0sp1/RV32IM_pineline/FP_Register_File.v(13).
+#    Time: 0 ps  Iteration: 0  Instance: /RV32I_tb/dut/decode/fprf File: C:/altera/13.0sp1/RV32IM_pineline/FP_Register_File.v
+# ** Warning: (vsim-3015) C:/altera/13.0sp1/RV32IM_pineline/decode_stage.v(73): [PCDPC] - Port size (64) does not match connection size (32) for port 'RD2'. The port definition is at: C:/altera/13.0sp1/RV32IM_pineline/FP_Register_File.v(14).
+#    Time: 0 ps  Iteration: 0  Instance: /RV32I_tb/dut/decode/fprf File: C:/altera/13.0sp1/RV32IM_pineline/FP_Register_File.v
+# ** Warning: (vsim-3017) C:/altera/13.0sp1/RV32IM_pineline/RV32I.v(247): [TFMPC] - Too few port connections. Expected 31, found 27.
+#    Time: 0 ps  Iteration: 0  Instance: /RV32I_tb/dut/execute File: C:/altera/13.0sp1/RV32IM_pineline/execute_stage.v
+# ** Warning: (vsim-3722) C:/altera/13.0sp1/RV32IM_pineline/RV32I.v(247): [TFMPC] - Missing connection for port 'FPRD1_E'.
+# ** Warning: (vsim-3722) C:/altera/13.0sp1/RV32IM_pineline/RV32I.v(247): [TFMPC] - Missing connection for port 'FPRD2_E'.
+# ** Warning: (vsim-3722) C:/altera/13.0sp1/RV32IM_pineline/RV32I.v(247): [TFMPC] - Missing connection for port 'FP_RD_E'.
+# ** Warning: (vsim-3722) C:/altera/13.0sp1/RV32IM_pineline/RV32I.v(247): [TFMPC] - Missing connection for port 'FP_StallE'.
+# ** Warning: (vsim-3017) C:/altera/13.0sp1/RV32IM_pineline/RV32I.v(354): [TFMPC] - Too few port connections. Expected 7, found 6.
+#    Time: 0 ps  Iteration: 0  Instance: /RV32I_tb/dut/memory File: C:/altera/13.0sp1/RV32IM_pineline/memory_stage.v
+# ** Warning: (vsim-3722) C:/altera/13.0sp1/RV32IM_pineline/RV32I.v(354): [TFMPC] - Missing connection for port 'isFPUM'.
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# 
+# ===== Cycle 1 =====
+# PCF        = 0x00000000
+# InstrF     = 0x00500093
+# ResultW    = 0x00000000 (rd = x0)
+# stall_F/D  = 0 / 0  flush_D/E = 0 / 0
+# ForwardA/B = 00 / 00  lwStall=0 branchStall=0
+# 
+# ===== Cycle 2 =====
+# PCF        = 0x00000004
+# InstrF     = 0x00a00113
+# ResultW    = 0x00000000 (rd = x0)
+# stall_F/D  = 0 / 0  flush_D/E = 0 / 0
+# ForwardA/B = 00 / 00  lwStall=0 branchStall=0
+# 
+# ===== Cycle 3 =====
+# PCF        = 0x00000008
+# InstrF     = 0x01400193
+# ResultW    = 0x00000000 (rd = x0)
+# stall_F/D  = 0 / 0  flush_D/E = 0 / 0
+# ForwardA/B = 00 / 00  lwStall=0 branchStall=0
+# 
+# ===== Cycle 4 =====
+# PCF        = 0x0000000c
+# InstrF     = 0x00300213
+# ResultW    = 0x00000000 (rd = x0)
+# stall_F/D  = 0 / 0  flush_D/E = 0 / 0
+# ForwardA/B = 00 / 00  lwStall=0 branchStall=0
+# 
+# ===== Cycle 5 =====
+# PCF        = 0x00000010
+# InstrF     = 0x00001537
+# ResultW    = 0x00000005 (rd = x1)
+# stall_F/D  = x / x  flush_D/E = 0 / 0
+# ForwardA/B = 00 / 00  lwStall=0 branchStall=0
+# 
+# ===== Cycle 6 =====
+# PCF        = 0x00000010
+# InstrF     = 0x00001537
+# ResultW    = 0x0000000a (rd = x2)
+# stall_F/D  = 0 / 0  flush_D/E = 0 / 0
+# ForwardA/B = 00 / 10  lwStall=0 branchStall=0
+# 
+# ===== Cycle 7 =====
+# PCF        = 0x00000014
+# InstrF     = 0x00002517
+# ResultW    = 0x00000014 (rd = x3)
+# stall_F/D  = 0 / 0  flush_D/E = 0 / 0
+# ForwardA/B = 00 / 01  lwStall=0 branchStall=0
+# 
+# ===== Cycle 8 =====
+# PCF        = 0x00000018
+# InstrF     = 0x002081b3
+# ResultW    = 0x00000003 (rd = x4)
+# stall_F/D  = 0 / 0  flush_D/E = 0 / 0
+# ForwardA/B = 00 / 00  lwStall=0 branchStall=0
+# 
+# ===== Cycle 9 =====
+# PCF        = 0x0000001c
+# InstrF     = 0x40208233
+# ResultW    = 0x00000003 (rd = x4)
+# stall_F/D  = 0 / 0  flush_D/E = 0 / 0
+# ForwardA/B = 00 / 00  lwStall=0 branchStall=0
+# 
+# ===== Cycle 10 =====
+# PCF        = 0x00000020
+# InstrF     = 0x004092b3
+# ResultW    = 0x00000000 (rd = x10)
+# stall_F/D  = 0 / 0  flush_D/E = 0 / 0
+# ForwardA/B = 00 / 00  lwStall=0 branchStall=0
+# 
+# ===== Cycle 11 =====
+# PCF        = 0x00000024
+# InstrF     = 0x0020a333
+# ResultW    = 0x00000000 (rd = x10)
+# stall_F/D  = x / x  flush_D/E = 0 / 0
+# ForwardA/B = 00 / 00  lwStall=0 branchStall=0
+# 
+# ===== Cycle 12 =====
+# PCF        = 0x00000024
+# InstrF     = 0x0020a333
+# ResultW    = 0x0000000f (rd = x3)
+# stall_F/D  = 0 / 0  flush_D/E = 0 / 0
+# ForwardA/B = 00 / 10  lwStall=0 branchStall=0
+# 
+# ===== Cycle 13 =====
+# PCF        = 0x00000028
+# InstrF     = 0x0020b3b3
+# ResultW    = 0xfffffffb (rd = x4)
+# stall_F/D  = 0 / 0  flush_D/E = 0 / 0
+# ForwardA/B = 00 / 01  lwStall=0 branchStall=0
+# 
+# ===== Cycle 14 =====
+# PCF        = 0x0000002c
+# InstrF     = 0x0020c433
+# ResultW    = 0x28000000 (rd = x5)
+# stall_F/D  = 0 / 0  flush_D/E = 0 / 0
+# ForwardA/B = 00 / 00  lwStall=0 branchStall=0
+# 
+# ===== Cycle 15 =====
+# PCF        = 0x00000030
+# InstrF     = 0x0040d4b3
+# ResultW    = 0x28000000 (rd = x5)
+# stall_F/D  = 0 / 0  flush_D/E = 0 / 0
+# ForwardA/B = 00 / 00  lwStall=0 branchStall=0
+# 
+# ===== Cycle 16 =====
+# PCF        = 0x00000034
+# InstrF     = 0x4040e533
+# ResultW    = 0x00000001 (rd = x6)
+# stall_F/D  = 0 / 0  flush_D/E = 0 / 0
+# ForwardA/B = 00 / 00  lwStall=0 branchStall=0
+# 
+# ===== Cycle 17 =====
+# PCF        = 0x00000038
+# InstrF     = 0x0020f5b3
+# ResultW    = 0x00000001 (rd = x7)
+# stall_F/D  = 0 / 0  flush_D/E = 0 / 0
+# ForwardA/B = 00 / 00  lwStall=0 branchStall=0
+# 
+# ===== Cycle 18 =====
+# PCF        = 0x0000003c
+# InstrF     = 0x0020f633
+# ResultW    = 0x0000000f (rd = x8)
+# stall_F/D  = 0 / 0  flush_D/E = 0 / 0
+# ForwardA/B = 00 / 00  lwStall=0 branchStall=0
+# 
+# ===== Cycle 19 =====
+# PCF        = 0x00000040
+# InstrF     = 0x00108113
+# ResultW    = 0x00000000 (rd = x9)
+# stall_F/D  = 0 / 0  flush_D/E = 0 / 0
+# ForwardA/B = 00 / 00  lwStall=0 branchStall=0
+# 
+# >>> PCF reached 0x00000040, stopping sim.
+# ** Note: $finish    : C:/altera/13.0sp1/RV32IM_pineline/RV32I_tb.v(130)
+#    Time: 2070 ns  Iteration: 0  Instance: /RV32I_tb
+# 1
+# Break in Module RV32I_tb at C:/altera/13.0sp1/RV32IM_pineline/RV32I_tb.v line 130
+# End time: 10:43:20 on Dec 02,2025, Elapsed time: 0:39:24
+# Errors: 205, Warnings: 23

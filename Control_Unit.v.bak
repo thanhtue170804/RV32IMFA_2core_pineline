@@ -1,0 +1,36 @@
+module Control_Unit(Op,RegWrite,ImmSrc,ALUSrc,MemWrite,ResultSrc,Branch,funct3,funct7,ALUControl);
+
+   input [6:0] Op;     // Opcode của lệnh (7 bit)
+	input [6:0] funct7; // Funct7 - phân biệt các biến thể lệnh
+	input [2:0] funct3; // Funct3 - chi tiết hoạt động của lệnh
+	output RegWrite;    // Cho phép ghi thanh ghi
+	output ALUSrc;      // Nguồn dữ liệu cho ALU
+	output MemWrite;    // Cho phép ghi bộ nhớ
+	output ResultSrc;   // Nguồn kết quả
+	output Branch;      // Tín hiệu nhánh
+	output [1:0] ImmSrc;// Nguồn mở rộng hằng số
+	output [2:0] ALUControl; // Mã điều khiển ALU
+
+    wire [1:0]ALUOp;
+
+    Main_Decoder Main_Decoder(
+                .Op(Op),
+                .RegWrite(RegWrite),
+                .ImmSrc(ImmSrc),
+                .MemWrite(MemWrite),
+                .ResultSrc(ResultSrc),
+                .Branch(Branch),
+                .ALUSrc(ALUSrc),
+                .ALUOp(ALUOp)
+    );
+
+    ALU_Decoder ALU_Decoder(
+                            .ALUOp(ALUOp),
+                            .funct3(funct3),
+                            .funct7(funct7),
+                            .op(Op),
+                            .ALUControl(ALUControl)
+    );
+
+
+endmodule

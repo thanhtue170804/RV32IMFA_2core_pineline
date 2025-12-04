@@ -1,0 +1,226 @@
+module FP_Reciprocal (
+    input clk, rst_n, start,
+    input [31:0] fp_in,          // Số cần tính nghịch đảo (IEEE-754)
+    output reg [31:0] fp_out,    // Kết quả nghịch đảo (1/x)
+    output reg done
+);
+    // State definitions
+    localparam IDLE = 4'd0;
+    localparam SETUP = 4'd1;
+    localparam ITERATE1 = 4'd2;
+    localparam ITERATE2 = 4'd3; 
+    localparam ITERATE3 = 4'd4;
+    localparam ITERATE4 = 4'd5;
+    localparam ITERATE5 = 4'd6;
+    localparam ITERATE6 = 4'd7;
+    localparam ADJUST = 4'd8;
+    localparam DONE_STATE = 4'd9;
+    
+    reg [3:0] state;
+    
+    // Registers for calculations
+    reg [31:0] input_normalized;    // Input normalized to [1,2) range
+    reg [31:0] x_n;                 // Current approximation
+    reg [31:0] two = 32'h40000000;  // Constant 2.0
+    
+    // Intermediate calculation results
+    reg [31:0] bx;                  // b * x_n
+    reg [31:0] two_minus_bx;        // 2 - b * x_n
+    reg [31:0] x_next;              // x_n * (2 - b * x_n)
+    
+    // Result sign and exponent calculation
+    wire result_sign = fp_in[31];
+    reg [7:0] result_exp;
+    
+    // Generate initial approximation based on mantissa bits
+    function [31:0] get_initial_approx;
+        input [22:0] mantissa;
+        begin
+            // Use a more accurate initial approximation
+            case(mantissa[22:19])
+                4'b0000: get_initial_approx = 32'h3F800000;  // 1.0000
+                4'b0001: get_initial_approx = 32'h3F7C0000;  // 0.9688
+                4'b0010: get_initial_approx = 32'h3F780000;  // 0.9375
+                4'b0011: get_initial_approx = 32'h3F740000;  // 0.9063
+                4'b0100: get_initial_approx = 32'h3F700000;  // 0.8750
+                4'b0101: get_initial_approx = 32'h3F6C0000;  // 0.8438
+                4'b0110: get_initial_approx = 32'h3F680000;  // 0.8125
+                4'b0111: get_initial_approx = 32'h3F640000;  // 0.7813
+                4'b1000: get_initial_approx = 32'h3F600000;  // 0.7500
+                4'b1001: get_initial_approx = 32'h3F5C0000;  // 0.7188
+                4'b1010: get_initial_approx = 32'h3F580000;  // 0.6875
+                4'b1011: get_initial_approx = 32'h3F540000;  // 0.6563
+                4'b1100: get_initial_approx = 32'h3F500000;  // 0.6250
+                4'b1101: get_initial_approx = 32'h3F4C0000;  // 0.5938
+                4'b1110: get_initial_approx = 32'h3F480000;  // 0.5625
+                4'b1111: get_initial_approx = 32'h3F440000;  // 0.5313
+            endcase
+        end
+    endfunction
+    
+    // State machine for Newton-Raphson iteration
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            state <= IDLE;
+            fp_out <= 32'h0;
+            done <= 1'b0;
+            x_n <= 32'h0;
+            input_normalized <= 32'h0;
+            bx <= 32'h0;
+            two_minus_bx <= 32'h0;
+            x_next <= 32'h0;
+            result_exp <= 8'h0;
+        end else begin
+            case (state)
+                IDLE: begin
+                    done <= 1'b0;
+                    if (start) begin
+                        // Handle special cases
+                        if (fp_in[30:0] == 31'h0) begin
+                            // 1/0 = Infinity (with the same sign)
+                            fp_out <= {fp_in[31], 8'hFF, 23'h0};
+                            state <= DONE_STATE;
+                        end else if (fp_in[30:23] == 8'hFF) begin
+                            // 1/Infinity = 0, 1/NaN = NaN
+                            fp_out <= (fp_in[22:0] == 23'h0) ? 
+                                      {fp_in[31], 31'h0} :         // 1/Infinity = 0
+                                      {1'b0, 8'hFF, 23'h400000};   // 1/NaN = NaN
+                            state <= DONE_STATE;
+                        end else begin
+                            // Normalize input to [1,2) range
+                            input_normalized <= {fp_in[31], 8'h7F, fp_in[22:0]};
+                            
+                            // Calculate result exponent: 254 - fp_in exponent
+                            // 254 = 2*127 (double bias)
+                            result_exp <= 8'd254 - fp_in[30:23];
+                            
+                            // Get initial approximation
+                            x_n <= get_initial_approx(fp_in[22:0]);
+                            
+                            state <= SETUP;
+                        end
+                    end
+                end
+                
+                SETUP: begin
+                    // First iteration: calculate b * x_n
+                    // For hardware implementation, we replace direct FP_Mul with inline calculation
+                    // for simplicity in this example
+                    bx <= multiply(input_normalized, x_n);
+                    state <= ITERATE1;
+                end
+                
+                ITERATE1: begin
+                    // Calculate (2 - b * x_n)
+                    two_minus_bx <= subtract(two, bx);
+                    state <= ITERATE2;
+                end
+                
+                ITERATE2: begin
+                    // Calculate x_n * (2 - b * x_n)
+                    x_next <= multiply(x_n, two_minus_bx);
+                    state <= ITERATE3;
+                end
+                
+                ITERATE3: begin
+                    // Update approximation
+                    x_n <= x_next;
+                    
+                    // Start second iteration: calculate b * x_n
+                    bx <= multiply(input_normalized, x_next);
+                    state <= ITERATE4;
+                end
+                
+                ITERATE4: begin
+                    // Calculate (2 - b * x_n)
+                    two_minus_bx <= subtract(two, bx);
+                    state <= ITERATE5;
+                end
+                
+                ITERATE5: begin
+                    // Calculate x_n * (2 - b * x_n)
+                    x_next <= multiply(x_n, two_minus_bx);
+                    state <= ITERATE6;
+                end
+                
+                ITERATE6: begin
+                    // Update approximation
+                    x_n <= x_next;
+                    state <= ADJUST;
+                end
+                
+                ADJUST: begin
+                    // Apply correct exponent to the final result
+                    // Preserve the sign, update exponent, keep mantissa
+                    fp_out <= {result_sign, result_exp, x_next[22:0]};
+                    state <= DONE_STATE;
+                end
+                
+                DONE_STATE: begin
+                    done <= 1'b1;
+                    state <= IDLE;
+                end
+                
+                default: begin
+                    state <= IDLE;
+                end
+            endcase
+        end
+    end
+    
+    // Function to emulate FP multiplication for clarity
+    // In an actual implementation, you would instantiate your FP_Mul module
+    function [31:0] multiply;
+        input [31:0] a, b;
+        reg sign_result;
+        reg [8:0] exp_result;
+        reg [47:0] mant_temp;
+        begin
+            // Calculate sign
+            sign_result = a[31] ^ b[31];
+            
+            // Calculate exponent
+            exp_result = a[30:23] + b[30:23] - 8'd127;
+            
+            // Calculate mantissa product
+            mant_temp = {1'b1, a[22:0]} * {1'b1, b[22:0]};
+            
+            // Normalize if needed
+            if (mant_temp[47]) begin
+                exp_result = exp_result + 9'd1;
+                mant_temp = mant_temp >> 1;
+            end
+            
+            // Assemble result
+            multiply = {sign_result, exp_result[7:0], mant_temp[45:23]};
+        end
+    endfunction
+    
+    // Function to emulate FP subtraction for clarity
+    function [31:0] subtract;
+        input [31:0] a, b;
+        reg [31:0] b_negated;
+        begin
+            // Negate b
+            b_negated = {~b[31], b[30:0]};
+            
+            // Perform addition
+            // In real implementation, call your FP_Add module
+            if (a[30:23] > b_negated[30:23]) begin
+                // Simple approximation for simulation
+                subtract = a;
+            end else if (a[30:23] < b_negated[30:23]) begin
+                subtract = b_negated;
+            end else begin
+                // Equal exponents, compare mantissa
+                if ({1'b1, a[22:0]} >= {1'b1, b_negated[22:0]}) begin
+                    subtract = {a[31], a[30:23], 
+                                {1'b1, a[22:0]} - {1'b1, b_negated[22:0]}};
+                end else begin
+                    subtract = {b_negated[31], b_negated[30:23], 
+                                {1'b1, b_negated[22:0]} - {1'b1, a[22:0]}};
+                end
+            end
+        end
+    endfunction
+endmodule

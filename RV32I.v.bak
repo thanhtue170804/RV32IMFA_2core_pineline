@@ -1,0 +1,261 @@
+module RV32I(
+    // Khai báo đầu vào
+    input clk,       // Tín hiệu đồng hồ
+    input rst        // Tín hiệu reset (active low)
+);
+    // Các tín hiệu stall và flush pipeline
+    wire stall_F, stall_D, stall_E, stall_M, stall_W;
+    wire flush_D, flush_E, flush_M, flush_W;
+    
+    // Các tín hiệu kết nối giai đoạn Fetch và thanh ghi IF/ID
+    wire [31:0] InstrF, PCF, PCPlus4F;
+    wire [31:0] InstrD, PCD, PCPlus4D;
+    
+    // Các tín hiệu kết nối giai đoạn Decode và thanh ghi ID/EX
+    wire RegWriteD, ALUSrcD, MemWriteD, ResultSrcD, BranchD;
+    wire [2:0] ALUControlD;
+    wire [1:0] ImmSrcD;
+    wire [31:0] RD1_D, RD2_D, Imm_Ext_D;
+    wire [4:0] RS1_D, RS2_D, RD_D;
+    
+    // Các tín hiệu kết nối thanh ghi ID/EX và giai đoạn Execute
+    wire RegWriteE, ALUSrcE, MemWriteE, ResultSrcE, BranchE;
+    wire [2:0] ALUControlE;
+    wire [31:0] RD1_E, RD2_E, Imm_Ext_E, PCE, PCPlus4E;
+    wire [4:0] RS1_E, RS2_E, RD_E;
+    
+    // Các tín hiệu kết nối giai đoạn Execute và thanh ghi EX/MEM
+    wire PCSrcE;
+    wire [31:0] ALU_ResultE, WriteDataE, PCTargetE;
+    
+    // Các tín hiệu kết nối thanh ghi EX/MEM và giai đoạn Memory
+    wire RegWriteM, MemWriteM, ResultSrcM;
+    wire [4:0] RD_M;
+    wire [31:0] PCPlus4M, ALU_ResultM, WriteDataM;
+    
+    // Các tín hiệu kết nối giai đoạn Memory và thanh ghi MEM/WB
+    wire [31:0] ReadDataM;
+    
+    // Các tín hiệu kết nối thanh ghi MEM/WB và giai đoạn Writeback
+    wire RegWriteW, ResultSrcW;
+    wire [4:0] RD_W;
+    wire [31:0] PCPlus4W, ALU_ResultW, ReadDataW;
+    
+    // Kết quả từ giai đoạn Writeback đến Register File
+    wire [31:0] ResultW;
+    
+    // Tín hiệu chuyển tiếp dữ liệu cho xử lý hazard
+    wire [1:0] ForwardAE, ForwardBE;
+    
+    // =========== KHỞI TẠO CÁC MODULE GIAI ĐOẠN ===========
+    
+    // Giai đoạn Fetch
+    fetch_stage fetch (
+        .clk(clk),
+        .rst(rst),
+        .stall(stall_F),                // Thêm tín hiệu stall
+        .PCSrcE(PCSrcE),
+        .PCTargetE(PCTargetE),
+        .InstrF(InstrF),
+        .PCF(PCF),
+        .PCPlus4F(PCPlus4F)
+    );
+    
+    // Thanh ghi IF/ID
+    if_id_registers if_id (
+        .clk(clk),
+        .rst(rst),
+        .stall(stall_D),
+        .flush(flush_D),
+        .InstrF(InstrF),
+        .PCF(PCF),
+        .PCPlus4F(PCPlus4F),
+        .InstrD(InstrD),
+        .PCD(PCD),
+        .PCPlus4D(PCPlus4D)
+    );
+    
+    // Giai đoạn Decode
+    decode_stage decode (
+        .clk(clk),
+        .rst(rst),
+        .InstrD(InstrD),
+        .PCD(PCD),
+        .PCPlus4D(PCPlus4D),
+        .RegWriteW(RegWriteW),
+        .RD_W(RD_W),
+        .ResultW(ResultW),
+        .RegWriteD(RegWriteD),
+        .ALUSrcD(ALUSrcD),
+        .MemWriteD(MemWriteD),
+        .ResultSrcD(ResultSrcD),
+        .BranchD(BranchD),
+        .ALUControlD(ALUControlD),
+        .ImmSrcD(ImmSrcD),
+        .RD1_D(RD1_D),
+        .RD2_D(RD2_D),
+        .Imm_Ext_D(Imm_Ext_D),
+        .RD_D(RD_D),
+        .RS1_D(RS1_D),
+        .RS2_D(RS2_D)
+    );
+    
+    // Thanh ghi ID/EX
+    id_ex_registers id_ex (
+        .clk(clk),
+        .rst(rst),
+        .stall(stall_E),
+        .flush(flush_E),
+        .RegWriteD(RegWriteD),
+        .ALUSrcD(ALUSrcD),
+        .MemWriteD(MemWriteD),
+        .ResultSrcD(ResultSrcD),
+        .BranchD(BranchD),
+        .ALUControlD(ALUControlD),
+        .RD1_D(RD1_D),
+        .RD2_D(RD2_D),
+        .Imm_Ext_D(Imm_Ext_D),
+        .PCD(PCD),
+        .PCPlus4D(PCPlus4D),
+        .RD_D(RD_D),
+        .RS1_D(RS1_D),
+        .RS2_D(RS2_D),
+        .RegWriteE(RegWriteE),
+        .ALUSrcE(ALUSrcE),
+        .MemWriteE(MemWriteE),
+        .ResultSrcE(ResultSrcE),
+        .BranchE(BranchE),
+        .ALUControlE(ALUControlE),
+        .RD1_E(RD1_E),
+        .RD2_E(RD2_E),
+        .Imm_Ext_E(Imm_Ext_E),
+        .PCE(PCE),
+        .PCPlus4E(PCPlus4E),
+        .RD_E(RD_E),
+        .RS1_E(RS1_E),
+        .RS2_E(RS2_E)
+    );
+    
+    // Giai đoạn Execute
+    execute_stage execute (
+        .RegWriteE(RegWriteE),
+        .ALUSrcE(ALUSrcE),
+        .MemWriteE(MemWriteE),
+        .ResultSrcE(ResultSrcE),
+        .BranchE(BranchE),
+        .ALUControlE(ALUControlE),
+        .RD1_E(RD1_E),
+        .RD2_E(RD2_E),
+        .Imm_Ext_E(Imm_Ext_E),
+        .PCE(PCE),
+        .PCPlus4E(PCPlus4E),
+        .RD_E(RD_E),
+        .ResultW(ResultW),
+        .ALU_ResultM(ALU_ResultM),
+        .ForwardA_E(ForwardAE),
+        .ForwardB_E(ForwardBE),
+        .PCSrcE(PCSrcE),
+        .ALU_ResultE(ALU_ResultE),
+        .WriteDataE(WriteDataE),
+        .PCTargetE(PCTargetE)
+    );
+    
+    // Thanh ghi EX/MEM
+    ex_mem_registers ex_mem (
+        .clk(clk),
+        .rst(rst),
+        .stall(stall_M),
+        .flush(flush_M),
+        .RegWriteE(RegWriteE),
+        .MemWriteE(MemWriteE),
+        .ResultSrcE(ResultSrcE),
+        .RD_E(RD_E),
+        .PCPlus4E(PCPlus4E),
+        .ALU_ResultE(ALU_ResultE),
+        .WriteDataE(WriteDataE),
+        .RegWriteM(RegWriteM),
+        .MemWriteM(MemWriteM),
+        .ResultSrcM(ResultSrcM),
+        .RD_M(RD_M),
+        .PCPlus4M(PCPlus4M),
+        .ALU_ResultM(ALU_ResultM),
+        .WriteDataM(WriteDataM)
+    );
+    
+    // Giai đoạn Memory
+    memory_stage memory (
+        .clk(clk),
+        .rst(rst),
+        .MemWriteM(MemWriteM),
+        .ALU_ResultM(ALU_ResultM),
+        .WriteDataM(WriteDataM),
+        .ReadDataM(ReadDataM)
+    );
+    
+    // Thanh ghi MEM/WB
+    mem_wb_registers mem_wb (
+        .clk(clk),
+        .rst(rst),
+        .stall(stall_W),
+        .flush(flush_W),
+        .RegWriteM(RegWriteM),
+        .ResultSrcM(ResultSrcM),
+        .RD_M(RD_M),
+        .PCPlus4M(PCPlus4M),
+        .ALU_ResultM(ALU_ResultM),
+        .ReadDataM(ReadDataM),
+        .RegWriteW(RegWriteW),
+        .ResultSrcW(ResultSrcW),
+        .RD_W(RD_W),
+        .PCPlus4W(PCPlus4W),
+        .ALU_ResultW(ALU_ResultW),
+        .ReadDataW(ReadDataW)
+    );
+    
+    // Giai đoạn Writeback
+    writeback_stage writeback (
+        .ResultSrcW(ResultSrcW),
+        .ALU_ResultW(ALU_ResultW),
+        .ReadDataW(ReadDataW),
+        .ResultW(ResultW)
+    );
+    
+    // =========== HỆ THỐNG XỬ LÝ HAZARD ===========
+    
+    // Module xử lý data hazard qua forwarding
+    hazard_unit data_hazard_unit (
+        .rst(rst),
+        .RegWriteM(RegWriteM),
+        .RegWriteW(RegWriteW),
+        .RD_M(RD_M),
+        .RD_W(RD_W),
+        .Rs1_E(RS1_E),
+        .Rs2_E(RS2_E),
+        .ForwardAE(ForwardAE),
+        .ForwardBE(ForwardBE)
+    );
+    
+    // Module điều khiển hazard (load hazard và control hazard)
+    hazard_control hazard_controller (
+        .rst(rst),
+        .PCSrcE(PCSrcE),                // Tín hiệu rẽ nhánh
+        .ResultSrcE(ResultSrcE),        // Nhận diện lệnh load
+        .RD_E(RD_E),                    // Thanh ghi đích giai đoạn Execute
+        .RS1_D(RS1_D),                  // Thanh ghi nguồn 1 giai đoạn Decode
+        .RS2_D(RS2_D),                  // Thanh ghi nguồn 2 giai đoạn Decode
+        
+        // Tín hiệu stall pipeline
+        .StallF(stall_F),
+        .StallD(stall_D),
+        .StallE(stall_E),
+        .StallM(stall_M),
+        .StallW(stall_W),
+        
+        // Tín hiệu flush pipeline
+        .FlushD(flush_D),
+        .FlushE(flush_E),
+        .FlushM(flush_M),
+        .FlushW(flush_W)
+    );
+    
+endmodule

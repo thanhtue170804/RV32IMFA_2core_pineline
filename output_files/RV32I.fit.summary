@@ -1,0 +1,16 @@
+Fitter Status : Successful - Sun Oct 12 22:19:45 2025
+Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
+Revision Name : RV32I
+Top-level Entity Name : RV32I
+Family : Cyclone II
+Device : EP2C35F672C6
+Timing Models : Final
+Total logic elements : 6,686 / 33,216 ( 20 % )
+    Total combinational functions : 6,632 / 33,216 ( 20 % )
+    Dedicated logic registers : 467 / 33,216 ( 1 % )
+Total registers : 467
+Total pins : 113 / 475 ( 24 % )
+Total virtual pins : 0
+Total memory bits : 34,304 / 483,840 ( 7 % )
+Embedded Multiplier 9-bit elements : 30 / 70 ( 43 % )
+Total PLLs : 0 / 4 ( 0 % )

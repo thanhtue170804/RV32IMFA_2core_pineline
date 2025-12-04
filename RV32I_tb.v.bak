@@ -1,0 +1,89 @@
+`timescale 1ns / 100ps
+module RV32I_tb;
+    // Khai báo tín hiệu
+    reg clk;
+    reg rst;
+    wire [31:0] PCF;
+    wire [31:0] InstrF;
+    wire [31:0] ResultW;
+    wire [4:0] RD_W;
+    wire stall_F;
+    wire stall_D;
+    wire flush_D;
+    wire flush_E;
+    wire [1:0] ForwardAE;
+    wire [1:0] ForwardBE;
+    wire lwStall;
+    wire branchStall;
+    
+    // Khởi tạo module RV32I
+    RV32I dut (
+        .clk(clk),
+        .rst(rst),
+        .PCF(PCF),
+        .InstrF(InstrF),
+        .ResultW(ResultW),
+        .RD_W(RD_W),
+        .stall_F(stall_F),
+        .stall_D(stall_D),
+        .flush_D(flush_D),
+        .flush_E(flush_E),
+        .ForwardAE(ForwardAE),
+        .ForwardBE(ForwardBE),
+        .lwStall(lwStall),
+        .branchStall(branchStall)
+    );
+    
+    // Tạo tín hiệu đồng hồ
+    initial begin
+        clk = 0;
+        forever #50 clk = ~clk; // Chu kỳ đồng hồ 100ns
+    end
+    
+    // Đọc file lệnh để so sánh
+    reg [31:0] expected_instr [0:1023];
+    initial begin
+        $readmemb("instructions_bin.txt", expected_instr);
+    end
+    
+    // Kịch bản kiểm tra
+    initial begin
+        // Khởi tạo file VCD
+        $dumpfile("RV32I_tb.vcd");
+        // Ghi các tín hiệu quan trọng
+        $dumpvars(1,
+            dut.clk,
+            dut.rst,
+            PCF,
+            InstrF,
+            ResultW,
+            RD_W,
+            stall_F,
+            stall_D,
+            flush_D,
+            flush_E,
+            ForwardAE,
+            ForwardBE,
+            lwStall,
+            branchStall
+        );
+        
+        // Khởi tạo tín hiệu
+        rst = 0;
+        
+        // Giữ reset trong 200ns
+        #200;
+        rst = 1;
+        
+        // Chạy mô phỏng trong 10000ns
+        #10000;
+        $finish;
+    end
+    
+    // Kiểm tra hoàn tất
+    always @(posedge clk) begin
+        if (rst && PCF == 32'h00000040) begin
+            $finish;
+        end
+    end
+endmodule

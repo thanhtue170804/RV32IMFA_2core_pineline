@@ -1,0 +1,79 @@
+module FP_Unit_tb;
+    // Inputs
+    reg [31:0] in_rs1, in_rs2;
+    reg [1:0] in_FPU_Op;
+    reg in_Clk, in_Rst_N, in_start;
+    // Outputs
+    wire [63:0] out_data;
+    wire out_stall; // Thêm out_stall từ FP_Div
+
+    // Instantiate the Unit Under Test (UUT)
+    FP_Unit uut (
+        .in_rs1(in_rs1),
+        .in_rs2(in_rs2),
+        .out_data(out_data),
+        .in_FPU_Op(in_FPU_Op),
+        .in_Clk(in_Clk),
+        .in_Rst_N(in_Rst_N),
+        .in_start(in_start)
+    );
+
+    // Clock generation
+    initial begin
+        in_Clk = 0;
+        forever #5 in_Clk = ~in_Clk; // Chu kỳ đồng hồ 10ns
+    end
+
+    // Test stimulus
+    initial begin
+        // Initialize signals
+        in_Rst_N = 0;
+        in_start = 0;
+        in_rs1 = 0;
+        in_rs2 = 0;
+        in_FPU_Op = 2'b00;
+
+        // Reset the system
+        #10 in_Rst_N = 1;
+
+        // Test Case 1: Addition (2.5 + 3.5 = 6.0)
+        in_rs1 = 32'h40200000; // 2.5
+        in_rs2 = 32'h40600000; // 3.5
+        in_FPU_Op = 2'b00; // Add
+        #10;
+        $display("Add: 2.5 + 3.5 = %h (Expected: 40c00000)", out_data[31:0]);
+
+        // Test Case 2: Subtraction (3.5 - 2.5 = 1.0)
+        in_rs1 = 32'h40600000; // 3.5
+        in_rs2 = 32'h40200000; // 2.5
+        in_FPU_Op = 2'b01; // Sub
+        #10;
+        $display("Sub: 3.5 - 2.5 = %h (Expected: 3f800000)", out_data[31:0]);
+
+        // Test Case 3: Multiplication (2.0 * 3.0 = 6.0)
+        in_rs1 = 32'h40000000; // 2.0
+        in_rs2 = 32'h40400000; // 3.0
+        in_FPU_Op = 2'b10; // Mul
+        #10;
+        $display("Mul: 2.0 * 3.0 = %h (Expected: 40c00000)", out_data[31:0]);
+
+        // Test Case 4: Division (6.0 / 2.0 = 3.0)
+        in_rs1 = 32'h40c00000; // 6.0
+        in_rs2 = 32'h40000000; // 2.0
+        in_FPU_Op = 2'b11; // Div
+        in_start = 1;
+        #10 in_start = 0;
+        #300; // Chờ 30 chu kỳ (24 chu kỳ cho chia + dư phòng)
+        $display("Div: 6.0 / 2.0 = %h (Expected: 40400000)", out_data[31:0]);
+
+        // Test Case 5: Addition with zeros (0.0 + 0.0 = 0.0)
+        in_rs1 = 32'h00000000; // 0.0
+        in_rs2 = 32'h00000000; // 0.0
+        in_FPU_Op = 2'b00; // Add
+        #10;
+        $display("Add: 0.0 + 0.0 = %h (Expected: 00000000)", out_data[31:0]);
+
+        // End simulation
+        $finish;
+    end
+endmodule

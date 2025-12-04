@@ -1,0 +1,48 @@
+module Main_Decoder(
+    // Input opcode từ lệnh
+    input [6:0] Op,   // 7-bit opcode xác định loại lệnh
+
+    // Các output điều khiển
+    output RegWrite,  // Cho phép ghi thanh ghi
+    output ALUSrc,    // Nguồn dữ liệu cho ALU
+    output MemWrite,  // Cho phép ghi bộ nhớ
+    output ResultSrc, // Nguồn kết quả
+    output Branch,    // Tín hiệu nhánh
+
+    // Các output mở rộng
+    output [1:0] ImmSrc,  // Nguồn mở rộng hằng số
+    output [1:0] ALUOp    // Mã điều khiển ALU
+);
+
+    // Quyết định ghi thanh ghi
+    // Bật cho các lệnh: Load, R-type, I-type
+    assign RegWrite = (Op == 7'b0000011 |  // Load
+                       Op == 7'b0110011 |  // R-type
+                       Op == 7'b0010011)   // I-type 
+                       ? 1'b1 : 1'b0;
+
+    // Xác định nguồn mở rộng hằng số
+    assign ImmSrc = (Op == 7'b0100011) ? 2'b01 :  // Store
+                    (Op == 7'b1100011) ? 2'b10 :  // Branch
+                                         2'b00;   // Mặc định
+
+    // Chọn nguồn thứ 2 cho ALU
+    assign ALUSrc = (Op == 7'b0000011 |  // Load
+                     Op == 7'b0100011 |  // Store
+                     Op == 7'b0010011)   // I-type
+                     ? 1'b1 : 1'b0;
+
+    // Cho phép ghi bộ nhớ (chỉ cho lệnh Store)
+    assign MemWrite = (Op == 7'b0100011) ? 1'b1 : 1'b0;
+
+    // Chọn nguồn kết quả (cho lệnh Load)
+    assign ResultSrc = (Op == 7'b0000011) ? 1'b1 : 1'b0;
+
+    // Tín hiệu nhánh (cho lệnh Branch)
+    assign Branch = (Op == 7'b1100011) ? 1'b1 : 1'b0;
+
+    // Mã điều khiển ALU
+    assign ALUOp = (Op == 7'b0110011) ? 2'b10 :  // R-type
+                   (Op == 7'b1100011) ? 2'b01 :  // Branch
+                                        2'b00;   // Mặc định
+endmodule

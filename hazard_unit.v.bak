@@ -1,0 +1,62 @@
+
+// Module Xử Lý Hazard Trong Kiến Trúc RISC-V
+module hazard_unit(
+    // Tín hiệu điều khiển
+    input rst,               // Tín hiệu reset
+
+    // Tín hiệu ghi thanh ghi từ các giai đoạn
+    input RegWriteM,         // Cho phép ghi ở giai đoạn Memory
+    input RegWriteW,         // Cho phép ghi ở giai đoạn Write-back
+
+    // Địa chỉ thanh ghi
+    input [4:0] RD_M,        // Địa chỉ thanh ghi đích ở giai đoạn Memory
+    input [4:0] RD_W,        // Địa chỉ thanh ghi đích ở giai đoạn Write-back
+    input [4:0] Rs1_E,       // Địa chỉ thanh ghi nguồn 1 ở giai đoạn Execute
+    input [4:0] Rs2_E,       // Địa chỉ thanh ghi nguồn 2 ở giai đoạn Execute
+
+    // Tín hiệu chuyển tiếp
+    output [1:0] ForwardAE,  // Chuyển tiếp cho toán hạng A
+    output [1:0] ForwardBE   // Chuyển tiếp cho toán hạng B
+);
+    // Logic chuyển tiếp cho toán hạng A
+    assign ForwardAE = 
+        // Trạng thái reset
+        (rst == 1'b0) ? 2'b00 : 
+        
+        // Ưu tiên chuyển tiếp từ giai đoạn Memory
+        ((RegWriteM == 1'b1) & 
+         (RD_M != 5'h00) & 
+         (RD_M == Rs1_E)) ? 2'b10 :
+        
+        // Chuyển tiếp từ giai đoạn Write-back
+        ((RegWriteW == 1'b1) & 
+         (RD_W != 5'h00) & 
+         (RD_W == Rs1_E)) ? 2'b01 : 
+        
+        // Mặc định: không chuyển tiếp
+        2'b00;
+                       
+    // Logic chuyển tiếp cho toán hạng B
+    assign ForwardBE = 
+        // Trạng thái reset
+        (rst == 1'b0) ? 2'b00 : 
+        
+        // Ưu tiên chuyển tiếp từ giai đoạn Memory
+        ((RegWriteM == 1'b1) & 
+         (RD_M != 5'h00) & 
+         (RD_M == Rs2_E)) ? 2'b10 :
+        
+        // Chuyển tiếp từ giai đoạn Write-back
+        ((RegWriteW == 1'b1) & 
+         (RD_W != 5'h00) & 
+         (RD_W == Rs2_E)) ? 2'b01 : 
+        
+        // Mặc định: không chuyển tiếp
+        2'b00;
+
+    // Chú thích giá trị ForwardAE/ForwardBE:
+    // 2'b00: Không chuyển tiếp (sử dụng giá trị gốc)
+    // 2'b01: Chuyển tiếp từ giai đoạn Write-back
+    // 2'b10: Chuyển tiếp từ giai đoạn Memory
+    // 2'b11: Không sử dụng
+endmodule

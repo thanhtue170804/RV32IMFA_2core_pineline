@@ -1,0 +1,74 @@
+module execute_stage(
+    // Đầu vào điều khiển
+    input RegWriteE, ALUSrcE, MemWriteE, ResultSrcE, BranchE,
+    input [2:0] ALUControlE,
+    
+    // Đầu vào dữ liệu từ ID/EX
+    input [31:0] RD1_E, RD2_E, Imm_Ext_E, PCE, PCPlus4E,
+    input [4:0] RD_E,
+    
+    // Đầu vào chuyển tiếp
+    input [31:0] ResultW, ALU_ResultM,
+    input [1:0] ForwardA_E, ForwardB_E,
+    
+    // Đầu ra điều khiển
+    output PCSrcE,
+    
+    // Đầu ra dữ liệu
+    output [31:0] ALU_ResultE, WriteDataE, PCTargetE
+);
+    // Dây nội bộ
+    wire [31:0] Src_A, Src_B_interim, Src_B;
+    wire ZeroE;
+    
+    // Multiplexer 3-to-1 cho nguồn toán hạng thứ nhất (chuyển tiếp)
+    Mux_3_by_1 srca_mux (
+        .a(RD1_E),
+        .b(ResultW),
+        .c(ALU_ResultM),
+        .s(ForwardA_E),
+        .d(Src_A)
+    );
+
+    // Multiplexer 3-to-1 cho nguồn toán hạng thứ hai (chuyển tiếp)
+    Mux_3_by_1 srcb_mux (
+        .a(RD2_E),
+        .b(ResultW),
+        .c(ALU_ResultM),
+        .s(ForwardB_E),
+        .d(Src_B_interim)
+    );
+
+    // Multiplexer 2-to-1 để chọn nguồn thứ hai cho ALU
+    mux alu_src_mux (
+        .a(Src_B_interim),
+        .b(Imm_Ext_E),
+        .s(ALUSrcE),
+        .c(Src_B)
+    );
+
+    // Khối ALU để thực hiện các phép toán
+    ALU alu (
+        .A(Src_A),
+        .B(Src_B),
+        .Result(ALU_ResultE),
+        .ALUControl(ALUControlE),
+        .OverFlow(),
+        .Carry(),
+        .Zero(ZeroE),
+        .Negative()
+    );
+
+    // Bộ cộng để tính địa chỉ rẽ nhánh
+    PC_Adder branch_adder (
+        .a(PCE),
+        .b(Imm_Ext_E),
+        .c(PCTargetE)
+    );
+    
+    // Dữ liệu ghi vào bộ nhớ là giá trị thanh ghi thứ hai sau khi forwarding
+    assign WriteDataE = Src_B_interim;
+    
+    // Quyết định rẽ nhánh
+    assign PCSrcE = ZeroE & BranchE;
+endmodule

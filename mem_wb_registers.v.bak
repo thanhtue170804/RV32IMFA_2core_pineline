@@ -1,0 +1,51 @@
+module mem_wb_registers(
+    // Tín hiệu điều khiển
+    input clk, rst,
+    input stall,
+    input flush,
+    
+    // Đầu vào tín hiệu điều khiển từ Memory
+    input RegWriteM, ResultSrcM,
+    
+    // Đầu vào dữ liệu từ Memory
+    input [4:0] RD_M,
+    input [31:0] PCPlus4M, ALU_ResultM, ReadDataM,
+    
+    // Đầu ra tín hiệu điều khiển đến Writeback
+    output reg RegWriteW, ResultSrcW,
+    
+    // Đầu ra dữ liệu đến Writeback
+    output reg [4:0] RD_W,
+    output reg [31:0] PCPlus4W, ALU_ResultW, ReadDataW
+);
+
+    always @(posedge clk or negedge rst) begin
+        if(rst == 1'b0) begin
+            // Logic reset
+            RegWriteW <= 1'b0;
+            ResultSrcW <= 1'b0;
+            RD_W <= 5'h00;
+            PCPlus4W <= 32'h00000000;
+            ALU_ResultW <= 32'h00000000;
+            ReadDataW <= 32'h00000000;
+        end
+        else if(flush) begin
+            // Xóa thanh ghi khi có flush
+            RegWriteW <= 1'b0;
+            ResultSrcW <= 1'b0;
+            RD_W <= 5'h00;
+            PCPlus4W <= 32'h00000000;
+            ALU_ResultW <= 32'h00000000;
+            ReadDataW <= 32'h00000000;
+        end
+        else if(!stall) begin
+            // Cập nhật khi không bị dừng
+            RegWriteW <= RegWriteM;
+            ResultSrcW <= ResultSrcM;
+            RD_W <= RD_M;
+            PCPlus4W <= PCPlus4M;
+            ALU_ResultW <= ALU_ResultM;
+            ReadDataW <= ReadDataM;
+        end
+    end
+endmodule

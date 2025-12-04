@@ -1,0 +1,73 @@
+module Inverse (
+    input wire clk,
+    input wire reset_n,
+    input wire start,
+    input wire [31:0] b,           // Số chia (IEEE 754)
+    output reg [31:0] inv_b,       // Nghịch đảo (1/b, IEEE 754)
+    output reg done
+);
+    reg [1:0] state;               // Trạng thái: 0=idle, 1=init, 2=iter1, 3=iter2
+    reg [31:0] x;                  // Giá trị lặp (x_n)
+    wire [31:0] prod, two_minus_bx;// Kết quả nhân và 2 - b*x_n
+    wire [31:0] lut_out;           // Giá trị khởi tạo từ LUT
+
+    // Bảng tra cứu (LUT) cho x_0
+    // Giả sử b = 1.xxxxx, LUT trả x_0 gần 1/b dựa trên 4 bit đầu của mantissa
+    reg [31:0] lut [0:15];
+    initial begin
+        lut[0] = 32'h3f800000; // 1.0 (cho b=1.0)
+        lut[1] = 32'h3f700000; // ~0.9375 (cho b=1.0625)
+        lut[2] = 32'h3f600000; // ~0.875 (cho b=1.125)
+        // ... (điền thêm giá trị, tính trước cho b từ 1.0 đến 1.9375)
+        lut[15] = 32'h3e800000; // ~0.5 (cho b=1.9375)
+    end
+
+    // Lấy x_0 từ LUT dựa trên 4 bit cao của mantissa b
+    assign lut_out = lut[b[22:19]];
+
+    // Nhân b * x_n và x_n * (2 - b*x_n)
+    FP_Mul mul_inst1 (
+        .A(b),
+        .B(x),
+        .Mul_Out(prod)
+    );
+
+    // Tính 2 - b*x_n (2.0 = 32'h40000000)
+    FP_Mul mul_inst2 (
+        .A(32'h40000000), // 2.0
+        .B({prod[31], prod[30:23] + 8'd1, prod[22:0]}), // Điều chỉnh số mũ
+        .Mul_Out(two_minus_bx)
+    );
+
+    always @(posedge clk or negedge reset_n) begin
+        if (!reset_n) begin
+            state <= 2'b0;
+            x <= 32'h0;
+            inv_b <= 32'h0;
+            done <= 1'b0;
+        end else begin
+            case (state)
+                2'b00: begin // Idle
+                    if (start) begin
+                        x <= lut_out;
+                        state <= 2'b01;
+                        done <= 1'b0;
+                    end
+                end
+                2'b01: begin // Lần lặp 1
+                    x <= two_minus_bx;
+                    state <= 2'b10;
+                end
+                2'b10: begin // Lần lặp 2
+                    x <= two_minus_bx;
+                    state <= 2'b11;
+                end
+                2'b11: begin // Hoàn thành
+                    inv_b <= x;
+                    done <= 1'b1;
+                    state <= 2'b00;
+                end
+            endcase
+        end
+    end
+endmodule

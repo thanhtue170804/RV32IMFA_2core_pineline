@@ -1,0 +1,58 @@
+module hazard_control(
+    // Đầu vào điều khiển
+    input rst,                 // Tín hiệu reset
+    input PCSrcE,              // Tín hiệu rẽ nhánh được thực hiện
+    input ResultSrcE,          // Tín hiệu lệnh load ở giai đoạn Execute
+    input [4:0] RD_E,          // Thanh ghi đích giai đoạn Execute
+    input [4:0] RS1_D, RS2_D,  // Thanh ghi nguồn giai đoạn Decode
+    
+    // Đầu ra tín hiệu stall
+    output StallF,             // Dừng giai đoạn Fetch
+    output StallD,             // Dừng giai đoạn Decode
+    output StallE,             // Dừng giai đoạn Execute
+    output StallM,             // Dừng giai đoạn Memory
+    output StallW,             // Dừng giai đoạn Writeback
+    
+    // Đầu ra tín hiệu flush
+    output FlushD,             // Xóa IF/ID
+    output FlushE,             // Xóa ID/EX
+    output FlushM,             // Xóa EX/MEM
+    output FlushW              // Xóa MEM/WB
+);
+    // Phát hiện load-use hazard
+    // Xảy ra khi lệnh load (ResultSrcE=1) được theo sau bởi lệnh sử dụng 
+    // dữ liệu đang được load (RD_E trùng với RS1_D hoặc RS2_D)
+    wire lwStall;
+    assign lwStall = ResultSrcE & 
+                    ((RD_E == RS1_D) | (RD_E == RS2_D)) &
+                    (RD_E != 5'h00);   // Đảm bảo không phải thanh ghi x0
+    
+    // Phát hiện control hazard (rẽ nhánh/jump)
+    wire branchStall;
+    assign branchStall = PCSrcE;  // Khi có rẽ nhánh/nhảy
+    
+    // Xử lý stall và flush pipeline
+    
+    // Stall Fetch và Decode khi có load hazard
+    assign StallF = lwStall;
+    assign StallD = lwStall;
+    
+    // Không cần stall các giai đoạn sau khi xử lý load hazard
+    assign StallE = 1'b0;
+    assign StallM = 1'b0;
+    assign StallW = 1'b0;
+    
+    // Flush IF/ID khi có rẽ nhánh (branch được thực hiện)
+    // để tránh thực thi các lệnh đã được fetch trong speculative path
+    assign FlushD = branchStall;
+    
+    // Flush ID/EX khi có load hazard hoặc rẽ nhánh
+    // - Với load hazard: tạo bubble (nop) để trì hoãn lệnh sử dụng dữ liệu
+    // - Với rẽ nhánh: loại bỏ lệnh không cần thiết trong pipeline
+    assign FlushE = lwStall | branchStall;
+    
+    // Không cần flush các giai đoạn sau trong trường hợp này
+    assign FlushM = 1'b0;
+    assign FlushW = 1'b0;
+    
+endmodule

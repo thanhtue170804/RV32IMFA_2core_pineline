@@ -1,0 +1,151 @@
+// FPUControlUnit.v
+// Decode opcode + funct7 + funct3 -> 5-bit FPUControl
+// Phong cách tương tự ALU_Decoder.v
+module FPU_Control_Unit (
+    input  wire [6:0] opcode,   // instruction opcode (instr[6:0])
+    input  wire [6:0] funct7,   // instr[31:25]
+    input  wire [2:0] funct3,   // instr[14:12]
+    output reg  [4:0] FPUControl
+);
+
+    // --- mã control (khớp FPU module) ---
+    localparam [4:0]
+        FADD_S    = 5'b00000,
+        FSUB_S    = 5'b00001,
+        FMUL_S    = 5'b00010,
+        FDIV_S    = 5'b00011,
+        FSQRT_S   = 5'b00100,
+        FSGNJ_S   = 5'b00101,
+        FSGNJN_S  = 5'b00110,
+        FSGNJX_S  = 5'b00111,
+        FEQ_S     = 5'b01000,
+        FLT_S     = 5'b01001,
+        FLE_S     = 5'b01010,
+        FCVT_W_S  = 5'b01100,
+        FCVT_WU_S = 5'b01101,
+        FCVT_S_W  = 5'b01110,
+        FCVT_S_WU = 5'b01111,
+        FMV_X_W   = 5'b10000,
+        FMV_W_X   = 5'b10001,
+        FCLASS_S  = 5'b10010,
+        // FMA family (nếu FPU hỗ trợ)
+        FMADD_S   = 5'b10100,
+        FMSUB_S   = 5'b10101,
+        FNMSUB_S  = 5'b10110,
+        FNMADD_S  = 5'b10111;
+
+    // Opcodes for FP groups (common)
+    localparam OP_FOP    = 7'b1010011; // FP arithmetic / other (FADD/FSUB/FMUL/FDIV/...)
+    localparam OP_FMADD  = 7'b1000011; // FMADD.S
+    localparam OP_FMSUB  = 7'b1000111; // FMSUB.S
+    localparam OP_FNMSUB = 7'b1001011; // FNMSUB.S
+    localparam OP_FNMADD = 7'b1001111; // FNMADD.S
+    localparam OP_FLW    = 7'b0000111; // FLW
+    localparam OP_FSW    = 7'b0100111; // FSW
+
+    always @(*) begin
+        // default
+        FPUControl = FADD_S;
+
+        case (opcode)
+            // -------------------------
+            // FP arithmetic / ops (opcode = 1010011)
+            // We'll further inspect funct7 and funct3
+            // -------------------------
+            OP_FOP: begin
+                case (funct7)
+                    7'b0000000: begin
+                        // many basic float ops share funct7=0000000; use funct3 if needed
+                        // mapping here assumes typical encodings:
+                        // funct3 000 : FADD.S
+                        // funct3 001 : FSRV / reserved (map default)
+                        case (funct3)
+                            3'b000: FPUControl = FADD_S;   // FADD.S / also can be FCVT variants in some encodings
+                            3'b001: FPUControl = FADD_S;   // fallback
+                            3'b010: FPUControl = FMUL_S;   // FMUL.S sometimes uses other funct7; safe fallback
+                            3'b011: FPUControl = FDIV_S;
+                            default: FPUControl = FADD_S;
+                        endcase
+                    end
+
+                    7'b0000100: FPUControl = FSUB_S;   // FSUB.S
+                    7'b0001000: FPUControl = FMUL_S;   // FMUL.S
+                    7'b0001100: FPUControl = FDIV_S;   // FDIV.S
+                    7'b0101100: FPUControl = FSQRT_S;  // FSQRT.S (spec uses different bits; keep mapping here)
+                    
+                    // sign ops group
+                    7'b0010000: begin
+                        case (funct3)
+                            3'b000: FPUControl = FSGNJ_S;
+                            3'b001: FPUControl = FSGNJN_S;
+                            3'b010: FPUControl = FSGNJX_S;
+                            default: FPUControl = FSGNJ_S;
+                        endcase
+                    end
+
+                    // compare group (example mapping)
+                    7'b1010000: begin
+                        case (funct3)
+                            3'b000: FPUControl = FLE_S;   // ordering depends on spec; keep safe mapping
+                            3'b001: FPUControl = FLT_S;
+                            3'b010: FPUControl = FEQ_S;
+                            default: FPUControl = FEQ_S;
+                        endcase
+                    end
+
+                    // convert group
+                    7'b1100000: begin
+                        case (funct3)
+                            3'b000: FPUControl = FCVT_W_S;
+                            3'b001: FPUControl = FCVT_WU_S;
+                            default: FPUControl = FCVT_W_S;
+                        endcase
+                    end
+
+                    7'b1101000: begin
+                        case (funct3)
+                            3'b000: FPUControl = FCVT_S_W;
+                            3'b001: FPUControl = FCVT_S_WU;
+                            default: FPUControl = FCVT_S_W;
+                        endcase
+                    end
+
+                    // move / class
+                    7'b1110000: begin
+                        case (funct3)
+                            3'b000: FPUControl = FMV_X_W;
+                            3'b001: FPUControl = FCLASS_S;
+                            default: FPUControl = FMV_X_W;
+                        endcase
+                    end
+
+                    7'b1111000: begin
+                        case (funct3)
+                            3'b000: FPUControl = FMV_W_X;
+                            default: FPUControl = FMV_W_X;
+                        endcase
+                    end
+
+                    default: FPUControl = FADD_S;
+                endcase
+            end
+
+            // -------------------------
+            // FMA family (separate opcodes)
+            // -------------------------
+            OP_FMADD: FPUControl = FMADD_S;
+            OP_FMSUB: FPUControl = FMSUB_S;
+            OP_FNMSUB: FPUControl = FNMSUB_S;
+            OP_FNMADD: FPUControl = FNMADD_S;
+
+            // -------------------------
+            // Loads/stores (FLW/FSW) - not arithmetic, map to default / no-op
+            // -------------------------
+            OP_FLW:  FPUControl = FMV_W_X; // reasonable default: move bits
+            OP_FSW:  FPUControl = FMV_X_W; // store uses memory path; control unused here
+
+            default: FPUControl = FADD_S;
+        endcase
+    end
+
+endmodule

@@ -1,0 +1,872 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/altera/13.0sp1/RV32IM_pineline/simulation/modelsim
+vAdder_Exponent_Bias
+Z1 !s110 1764644633
+!i10b 1
+!s100 kZ<ZHk^dD=8NH[2gkS]BW0
+I]TSn:O^Zh3:zn9eaC3PRA3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1747033158
+8C:/altera/13.0sp1/RV32IM_pineline/Adder_Exponent_Bias.v
+FC:/altera/13.0sp1/RV32IM_pineline/Adder_Exponent_Bias.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1764644633.000000
+!s107 C:/altera/13.0sp1/RV32IM_pineline/Adder_Exponent_Bias.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/Adder_Exponent_Bias.v|
+!i113 1
+Z5 o-vlog01compat -work work
+Z6 !s92 -vlog01compat -work work +incdir+C:/altera/13.0sp1/RV32IM_pineline
+Z7 tCvgOpt 0
+n@adder_@exponent_@bias
+vALU
+Z8 !s110 1764644635
+!i10b 1
+!s100 n6M`]kY6z2XB6:OKdW[PZ3
+IJOdXWLNQH]2zm=OR8cHYd3
+R2
+R0
+w1759734020
+8C:/altera/13.0sp1/RV32IM_pineline/ALU.v
+FC:/altera/13.0sp1/RV32IM_pineline/ALU.v
+L0 4
+R3
+r1
+!s85 0
+31
+Z9 !s108 1764644635.000000
+!s107 C:/altera/13.0sp1/RV32IM_pineline/ALU.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/ALU.v|
+!i113 1
+R5
+R6
+R7
+n@a@l@u
+vALU_Decoder
+R8
+!i10b 1
+!s100 KgJDbE21Nb2OKoR9YQ6b93
+Ik0o`9ER@nalcGdKY[k?nG0
+R2
+R0
+w1759734434
+8C:/altera/13.0sp1/RV32IM_pineline/ALU_Decoder.v
+FC:/altera/13.0sp1/RV32IM_pineline/ALU_Decoder.v
+L0 4
+R3
+r1
+!s85 0
+31
+R9
+!s107 C:/altera/13.0sp1/RV32IM_pineline/ALU_Decoder.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/ALU_Decoder.v|
+!i113 1
+R5
+R6
+R7
+n@a@l@u_@decoder
+vControl_Unit
+Z10 !s110 1764644634
+!i10b 1
+!s100 b0R9E_=jm?ILJ9SBbUI?Y1
+I;1Nj1:^VkRhQgPnP8kYim2
+R2
+R0
+w1759734593
+8C:/altera/13.0sp1/RV32IM_pineline/Control_Unit.v
+FC:/altera/13.0sp1/RV32IM_pineline/Control_Unit.v
+L0 5
+R3
+r1
+!s85 0
+31
+Z11 !s108 1764644634.000000
+!s107 C:/altera/13.0sp1/RV32IM_pineline/Control_Unit.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/Control_Unit.v|
+!i113 1
+R5
+R6
+R7
+n@control_@unit
+vData_Memory
+R8
+!i10b 1
+!s100 >POH1bVfmeUoR6?kdA7Q@2
+IbA>eFe[aKhW6O`6hUdg0g1
+R2
+R0
+w1746603014
+8C:/altera/13.0sp1/RV32IM_pineline/Data_Memory.v
+FC:/altera/13.0sp1/RV32IM_pineline/Data_Memory.v
+L0 2
+R3
+r1
+!s85 0
+31
+R9
+!s107 C:/altera/13.0sp1/RV32IM_pineline/Data_Memory.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/Data_Memory.v|
+!i113 1
+R5
+R6
+R7
+n@data_@memory
+vdecode_stage
+R10
+!i10b 1
+!s100 mP0Jf7K_n@BENh5SNl4jT3
+IN@kZGGPl:UHQ0MzZ>`_?I3
+R2
+R0
+w1760282333
+8C:/altera/13.0sp1/RV32IM_pineline/decode_stage.v
+FC:/altera/13.0sp1/RV32IM_pineline/decode_stage.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/altera/13.0sp1/RV32IM_pineline/decode_stage.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/decode_stage.v|
+!i113 1
+R5
+R6
+R7
+vex_mem_registers
+R1
+!i10b 1
+!s100 0OLYD<KP2Q^kn]Vj8=TP;3
+IFa4ULZ]5C2d5cL0X?2jLh2
+R2
+R0
+w1760190595
+8C:/altera/13.0sp1/RV32IM_pineline/ex_mem_registers.v
+FC:/altera/13.0sp1/RV32IM_pineline/ex_mem_registers.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/altera/13.0sp1/RV32IM_pineline/ex_mem_registers.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/ex_mem_registers.v|
+!i113 1
+R5
+R6
+R7
+vexecute_stage
+R10
+!i10b 1
+!s100 NaKbjUJeGKcC:iWJKncPO2
+IVJ0Wn4E3Sm2Xn_JkR:hT`2
+R2
+R0
+w1760197103
+8C:/altera/13.0sp1/RV32IM_pineline/execute_stage.v
+FC:/altera/13.0sp1/RV32IM_pineline/execute_stage.v
+L0 4
+R3
+r1
+!s85 0
+31
+R11
+!s107 C:/altera/13.0sp1/RV32IM_pineline/execute_stage.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/execute_stage.v|
+!i113 1
+R5
+R6
+R7
+vfetch_stage
+R1
+!i10b 1
+!s100 BL>RL8k<:;ZfHV1MS9H]?1
+IA9Unc]1SDD@<kfa=_[<Nz1
+R2
+R0
+w1746605424
+8C:/altera/13.0sp1/RV32IM_pineline/fetch_stage.v
+FC:/altera/13.0sp1/RV32IM_pineline/fetch_stage.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/altera/13.0sp1/RV32IM_pineline/fetch_stage.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/fetch_stage.v|
+!i113 1
+R5
+R6
+R7
+vFloating_Seperation
+R1
+!i10b 1
+!s100 `WMZ1:;88HC=mCzR57HDZ0
+I7IU`m3OdV[>TQR7lLl_cR1
+R2
+R0
+w1744207624
+8C:/altera/13.0sp1/RV32IM_pineline/Floating_Seperation.v
+FC:/altera/13.0sp1/RV32IM_pineline/Floating_Seperation.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/altera/13.0sp1/RV32IM_pineline/Floating_Seperation.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/Floating_Seperation.v|
+!i113 1
+R5
+R6
+R7
+n@floating_@seperation
+vFP_Add
+R1
+!i10b 1
+!s100 i5FLYzH>2C4_4hbS8c8223
+I5PE0QcUC6QLUf6Lgid^Oj1
+R2
+R0
+w1747031278
+8C:/altera/13.0sp1/RV32IM_pineline/FP_Add.v
+FC:/altera/13.0sp1/RV32IM_pineline/FP_Add.v
+L0 1
+R3
+r1
+!s85 0
+31
+Z12 !s108 1764644632.000000
+!s107 C:/altera/13.0sp1/RV32IM_pineline/FP_Add.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/FP_Add.v|
+!i113 1
+R5
+R6
+R7
+n@f@p_@add
+vFP_Div
+Z13 !s110 1764644632
+!i10b 1
+!s100 g_8iW1e`QgzS?XT2=mYBJ0
+I^_KMB3Xn9LSTe<DKl9^Bn1
+R2
+R0
+w1760196926
+8C:/altera/13.0sp1/RV32IM_pineline/FP_Div.v
+FC:/altera/13.0sp1/RV32IM_pineline/FP_Div.v
+L0 3
+R3
+r1
+!s85 0
+31
+R12
+!s107 C:/altera/13.0sp1/RV32IM_pineline/FP_Div.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/FP_Div.v|
+!i113 1
+R5
+R6
+R7
+n@f@p_@div
+vFP_Mul
+R13
+!i10b 1
+!s100 iHgN1iCkSYOYezYYN;Bi;2
+IN5[Hn[8^o52omLYNm7hXE3
+R2
+R0
+w1747033008
+8C:/altera/13.0sp1/RV32IM_pineline/FP_Mul.v
+FC:/altera/13.0sp1/RV32IM_pineline/FP_Mul.v
+L0 1
+R3
+r1
+!s85 0
+31
+R12
+!s107 C:/altera/13.0sp1/RV32IM_pineline/FP_Mul.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/FP_Mul.v|
+!i113 1
+R5
+R6
+R7
+n@f@p_@mul
+vFP_Register_File
+R1
+!i10b 1
+!s100 PMk`jKHjJ<U5HUcID^O>13
+IJGm3TLK]eAl9a]Rh@gSD:0
+R2
+R0
+w1760281595
+8C:/altera/13.0sp1/RV32IM_pineline/FP_Register_File.v
+FC:/altera/13.0sp1/RV32IM_pineline/FP_Register_File.v
+L0 5
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/altera/13.0sp1/RV32IM_pineline/FP_Register_File.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/FP_Register_File.v|
+!i113 1
+R5
+R6
+R7
+n@f@p_@register_@file
+vFP_Sub
+R13
+!i10b 1
+!s100 K<Y[o48hM7b2ec`NHPQML2
+IO=zOK4cia<O1QSERb<IFd2
+R2
+R0
+w1747032436
+8C:/altera/13.0sp1/RV32IM_pineline/FP_Sub.v
+FC:/altera/13.0sp1/RV32IM_pineline/FP_Sub.v
+L0 1
+R3
+r1
+!s85 0
+31
+R12
+!s107 C:/altera/13.0sp1/RV32IM_pineline/FP_Sub.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/FP_Sub.v|
+!i113 1
+R5
+R6
+R7
+n@f@p_@sub
+vFPU
+R1
+!i10b 1
+!s100 Z;]Ko@2^35YVad3Dd_==@2
+ISU26cZRzPBmd3<M]f5Hz?0
+R2
+R0
+w1760195273
+8C:/altera/13.0sp1/RV32IM_pineline/FPU.v
+FC:/altera/13.0sp1/RV32IM_pineline/FPU.v
+L0 9
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/altera/13.0sp1/RV32IM_pineline/FPU.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/FPU.v|
+!i113 1
+R5
+R6
+R7
+n@f@p@u
+vFPU_Control_Unit
+R13
+!i10b 1
+!s100 O2f;c4=VHI>6c1U_2];M<3
+I_NTfDWnLN4AecBR>?f[kM1
+R2
+R0
+w1760196516
+8C:/altera/13.0sp1/RV32IM_pineline/FPU_Control_Unit.v
+FC:/altera/13.0sp1/RV32IM_pineline/FPU_Control_Unit.v
+L0 4
+R3
+r1
+!s85 0
+31
+R12
+!s107 C:/altera/13.0sp1/RV32IM_pineline/FPU_Control_Unit.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/FPU_Control_Unit.v|
+!i113 1
+R5
+R6
+R7
+n@f@p@u_@control_@unit
+vhazard_control
+R10
+!i10b 1
+!s100 c5Gn2<`UY;k9X;h?ifWKb1
+I]mMK1SOdGK;9oA>jfMR_i3
+R2
+R0
+w1760190865
+8C:/altera/13.0sp1/RV32IM_pineline/hazard_control.v
+FC:/altera/13.0sp1/RV32IM_pineline/hazard_control.v
+L0 1
+R3
+r1
+!s85 0
+31
+R11
+!s107 C:/altera/13.0sp1/RV32IM_pineline/hazard_control.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/hazard_control.v|
+!i113 1
+R5
+R6
+R7
+vhazard_unit
+R8
+!i10b 1
+!s100 XzL:hG;PJ=_DM3?6:G^J<2
+IOG?8n@3NoRI1Ubz6k[ZZi1
+R2
+R0
+w1760190983
+8C:/altera/13.0sp1/RV32IM_pineline/hazard_unit.v
+FC:/altera/13.0sp1/RV32IM_pineline/hazard_unit.v
+L0 1
+R3
+r1
+!s85 0
+31
+R9
+!s107 C:/altera/13.0sp1/RV32IM_pineline/hazard_unit.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/hazard_unit.v|
+!i113 1
+R5
+R6
+R7
+vid_ex_registers
+R1
+!i10b 1
+!s100 FEYdTH0AedIlW4lS?8DLj1
+I_595Xc<k9TACGzSCF=EQc0
+R2
+R0
+w1760197206
+8C:/altera/13.0sp1/RV32IM_pineline/id_ex_registers.v
+FC:/altera/13.0sp1/RV32IM_pineline/id_ex_registers.v
+L0 2
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/altera/13.0sp1/RV32IM_pineline/id_ex_registers.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/id_ex_registers.v|
+!i113 1
+R5
+R6
+R7
+vif_id_registers
+R1
+!i10b 1
+!s100 H@AP=A`eRFDgHWVClVb<l1
+IJ57M4_jn1KkVG]JnY753I2
+R2
+R0
+w1746366821
+8C:/altera/13.0sp1/RV32IM_pineline/if_id_registers.v
+FC:/altera/13.0sp1/RV32IM_pineline/if_id_registers.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/altera/13.0sp1/RV32IM_pineline/if_id_registers.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/if_id_registers.v|
+!i113 1
+R5
+R6
+R7
+vInstruction_Memory
+R8
+!i10b 1
+!s100 C3<=d`k16bz87A`ZGR9[k1
+ISEI?RIeF^mFCFW65gRbXU3
+R2
+R0
+w1746616109
+8C:/altera/13.0sp1/RV32IM_pineline/Instruction_Memory.v
+FC:/altera/13.0sp1/RV32IM_pineline/Instruction_Memory.v
+L0 2
+R3
+r1
+!s85 0
+31
+R9
+!s107 C:/altera/13.0sp1/RV32IM_pineline/Instruction_Memory.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/Instruction_Memory.v|
+!i113 1
+R5
+R6
+R7
+n@instruction_@memory
+vMain_Decoder
+R8
+!i10b 1
+!s100 zLei_1bKfjDg4BB1XeBE>1
+IZQ>IhkTNk40;V8ZFk;3Xc1
+R2
+R0
+w1760187482
+8C:/altera/13.0sp1/RV32IM_pineline/Main_Decoder.v
+FC:/altera/13.0sp1/RV32IM_pineline/Main_Decoder.v
+L0 3
+R3
+r1
+!s85 0
+31
+R11
+!s107 C:/altera/13.0sp1/RV32IM_pineline/Main_Decoder.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/Main_Decoder.v|
+!i113 1
+R5
+R6
+R7
+n@main_@decoder
+vMantissa_Multiplier
+R13
+!i10b 1
+!s100 5CfkZl6i3<1bVF1gLTl::2
+IAzdeOPf[8:Vf=OemROERB0
+R2
+R0
+w1744208626
+8C:/altera/13.0sp1/RV32IM_pineline/Mantissa_Multiplier.v
+FC:/altera/13.0sp1/RV32IM_pineline/Mantissa_Multiplier.v
+L0 1
+R3
+r1
+!s85 0
+31
+R12
+!s107 C:/altera/13.0sp1/RV32IM_pineline/Mantissa_Multiplier.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/Mantissa_Multiplier.v|
+!i113 1
+R5
+R6
+R7
+n@mantissa_@multiplier
+vMantissa_Normalisation
+R13
+!i10b 1
+!s100 3Qg[TaFfg^ne[I0GWEOLK2
+I>3XLSQY_@M;;@;hfRTRR[0
+R2
+R0
+w1744208452
+8C:/altera/13.0sp1/RV32IM_pineline/Mantissa_Normalisation.v
+FC:/altera/13.0sp1/RV32IM_pineline/Mantissa_Normalisation.v
+L0 1
+R3
+r1
+!s85 0
+31
+R12
+!s107 C:/altera/13.0sp1/RV32IM_pineline/Mantissa_Normalisation.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/Mantissa_Normalisation.v|
+!i113 1
+R5
+R6
+R7
+n@mantissa_@normalisation
+vmem_wb_registers
+R1
+!i10b 1
+!s100 i1:]RzDCmfZ=g0nZgLFX10
+I<RbUAAE613X^WH7?:DPfX3
+R2
+R0
+w1760190636
+8C:/altera/13.0sp1/RV32IM_pineline/mem_wb_registers.v
+FC:/altera/13.0sp1/RV32IM_pineline/mem_wb_registers.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/altera/13.0sp1/RV32IM_pineline/mem_wb_registers.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/mem_wb_registers.v|
+!i113 1
+R5
+R6
+R7
+vmemory_stage
+R10
+!i10b 1
+!s100 ASCnXW=RA4;nb@Y`]_J3K1
+IzD54V0_SMRdc[YF<8HT7A0
+R2
+R0
+w1760190291
+8C:/altera/13.0sp1/RV32IM_pineline/memory_stage.v
+FC:/altera/13.0sp1/RV32IM_pineline/memory_stage.v
+L0 1
+R3
+r1
+!s85 0
+31
+R11
+!s107 C:/altera/13.0sp1/RV32IM_pineline/memory_stage.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/memory_stage.v|
+!i113 1
+R5
+R6
+R7
+vmux
+R10
+!i10b 1
+!s100 19Ihn0@Ic4CD1NDmN:IeW2
+I[]j40Q9VhCOV?2ZB:aiNj1
+R2
+R0
+w1746367138
+8C:/altera/13.0sp1/RV32IM_pineline/mux.v
+FC:/altera/13.0sp1/RV32IM_pineline/mux.v
+L0 1
+R3
+r1
+!s85 0
+31
+R11
+!s107 C:/altera/13.0sp1/RV32IM_pineline/mux.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/mux.v|
+!i113 1
+R5
+R6
+R7
+vNormalizer
+R13
+!i10b 1
+!s100 6Ce4PF9NH@lWVz_;^MFAP1
+Ibh^`AWcf_H;AK>F8ggG@?2
+R2
+R0
+w1747033656
+8C:/altera/13.0sp1/RV32IM_pineline/Normalizer.v
+FC:/altera/13.0sp1/RV32IM_pineline/Normalizer.v
+L0 1
+R3
+r1
+!s85 0
+31
+R12
+!s107 C:/altera/13.0sp1/RV32IM_pineline/Normalizer.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/Normalizer.v|
+!i113 1
+R5
+R6
+R7
+n@normalizer
+vNR_Iteration
+R13
+!i10b 1
+!s100 z`Y0ljd;iE2aPnb>NfK=X2
+ImV4>QGBbO<_[O5PG?201H2
+R2
+R0
+w1747059386
+8C:/altera/13.0sp1/RV32IM_pineline/NR_Iteration.v
+FC:/altera/13.0sp1/RV32IM_pineline/NR_Iteration.v
+L0 1
+R3
+r1
+!s85 0
+31
+R12
+!s107 C:/altera/13.0sp1/RV32IM_pineline/NR_Iteration.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/NR_Iteration.v|
+!i113 1
+R5
+R6
+R7
+n@n@r_@iteration
+vPC_Adder
+R10
+!i10b 1
+!s100 _aBS]c>7_A@?2e?KGd5Nb1
+Ib1Q>E:5m3z[R`j;5JLd6@3
+R2
+R0
+w1746367163
+8C:/altera/13.0sp1/RV32IM_pineline/PC_Adder.v
+FC:/altera/13.0sp1/RV32IM_pineline/PC_Adder.v
+L0 1
+R3
+r1
+!s85 0
+31
+R11
+!s107 C:/altera/13.0sp1/RV32IM_pineline/PC_Adder.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/PC_Adder.v|
+!i113 1
+R5
+R6
+R7
+n@p@c_@adder
+vPC_module
+R10
+!i10b 1
+!s100 FJWCTNWWU>DYHdCV2mFVz1
+IlKfNgOg4ToehajJ2R6?1T0
+R2
+R0
+w1746368815
+8C:/altera/13.0sp1/RV32IM_pineline/PC_module.v
+FC:/altera/13.0sp1/RV32IM_pineline/PC_module.v
+L0 1
+R3
+r1
+!s85 0
+31
+R11
+!s107 C:/altera/13.0sp1/RV32IM_pineline/PC_module.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/PC_module.v|
+!i113 1
+R5
+R6
+R7
+n@p@c_module
+vRegister_File
+R8
+!i10b 1
+!s100 8TI=CN@oWUCcjh;@i@o[z0
+I_?OJY]9:T=e297RDO4X0?2
+R2
+R0
+w1746367211
+8C:/altera/13.0sp1/RV32IM_pineline/Register_File.v
+FC:/altera/13.0sp1/RV32IM_pineline/Register_File.v
+L0 1
+R3
+r1
+!s85 0
+31
+R9
+!s107 C:/altera/13.0sp1/RV32IM_pineline/Register_File.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/Register_File.v|
+!i113 1
+R5
+R6
+R7
+n@register_@file
+vRV32I
+R10
+!i10b 1
+!s100 OTE7?HQUS?bG7EbJfdEU01
+I1Onn5a3;KiCfTCA@<WzzL2
+R2
+R0
+w1760196457
+8C:/altera/13.0sp1/RV32IM_pineline/RV32I.v
+FC:/altera/13.0sp1/RV32IM_pineline/RV32I.v
+L0 6
+R3
+r1
+!s85 0
+31
+R11
+!s107 C:/altera/13.0sp1/RV32IM_pineline/RV32I.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/RV32I.v|
+!i113 1
+R5
+R6
+R7
+n@r@v32@i
+vRV32I_tb
+R8
+!i10b 1
+!s100 ]=BmzF5el5mjARRjh?3aO3
+I3dIE0lD]Ih9Smif:5M8i@0
+R2
+R0
+w1764644560
+8C:/altera/13.0sp1/RV32IM_pineline/RV32I_tb.v
+FC:/altera/13.0sp1/RV32IM_pineline/RV32I_tb.v
+L0 2
+R3
+r1
+!s85 0
+31
+R9
+!s107 C:/altera/13.0sp1/RV32IM_pineline/RV32I_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/RV32I_tb.v|
+!i113 1
+R5
+R6
+R7
+n@r@v32@i_tb
+vSign_Extend
+R8
+!i10b 1
+!s100 gcJR@md:d5Y9=0mNAmX7c3
+IfB[f4I[;R8HJz;iNO:T>40
+R2
+R0
+w1746367221
+8C:/altera/13.0sp1/RV32IM_pineline/Sign_Extend.v
+FC:/altera/13.0sp1/RV32IM_pineline/Sign_Extend.v
+L0 1
+R3
+r1
+!s85 0
+31
+R9
+!s107 C:/altera/13.0sp1/RV32IM_pineline/Sign_Extend.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/Sign_Extend.v|
+!i113 1
+R5
+R6
+R7
+n@sign_@extend
+vSign_Unit
+R13
+!i10b 1
+!s100 nh<SZPe]?`4SLYS<2:FBR1
+IVX=[gBdKLm9:7jB783h6J1
+R2
+R0
+w1744208856
+8C:/altera/13.0sp1/RV32IM_pineline/Sign_Unit.v
+FC:/altera/13.0sp1/RV32IM_pineline/Sign_Unit.v
+L0 1
+R3
+r1
+!s85 0
+31
+R12
+!s107 C:/altera/13.0sp1/RV32IM_pineline/Sign_Unit.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/Sign_Unit.v|
+!i113 1
+R5
+R6
+R7
+n@sign_@unit
+vwriteback_stage
+R10
+!i10b 1
+!s100 6HDJ<688gLKbZm8=<iJ0G2
+Izhk=?jWahU2O_8dz:F0OK2
+R2
+R0
+w1760196707
+8C:/altera/13.0sp1/RV32IM_pineline/writeback_stage.v
+FC:/altera/13.0sp1/RV32IM_pineline/writeback_stage.v
+L0 2
+R3
+r1
+!s85 0
+31
+R11
+!s107 C:/altera/13.0sp1/RV32IM_pineline/writeback_stage.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/altera/13.0sp1/RV32IM_pineline|C:/altera/13.0sp1/RV32IM_pineline/writeback_stage.v|
+!i113 1
+R5
+R6
+R7

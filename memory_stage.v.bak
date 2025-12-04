@@ -1,0 +1,21 @@
+module memory_stage(
+    // Đầu vào điều khiển
+    input clk, rst,
+    input MemWriteM,
+    
+    // Đầu vào dữ liệu
+    input [31:0] ALU_ResultM, WriteDataM,
+    
+    // Đầu ra dữ liệu
+    output [31:0] ReadDataM
+);
+    // Bộ nhớ dữ liệu
+    Data_Memory dmem (
+        .clk(clk),
+        .rst(rst),
+        .WE(MemWriteM),
+        .WD(WriteDataM),
+        .A(ALU_ResultM),
+        .RD(ReadDataM)
+    );
+endmodule

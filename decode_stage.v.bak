@@ -1,0 +1,62 @@
+module decode_stage(
+    // Đầu vào điều khiển
+    input clk, rst,
+    
+    // Đầu vào từ thanh ghi IF/ID
+    input [31:0] InstrD, PCD, PCPlus4D,
+    
+    // Đầu vào từ Writeback
+    input RegWriteW,
+    input [4:0] RD_W,
+    input [31:0] ResultW,
+    
+    // Đầu ra tín hiệu điều khiển đến ID/EX
+    output RegWriteD, ALUSrcD, MemWriteD, ResultSrcD, BranchD,
+    output [2:0] ALUControlD,
+    output [1:0] ImmSrcD,
+    
+    // Đầu ra dữ liệu đến ID/EX
+    output [31:0] RD1_D, RD2_D, Imm_Ext_D,
+    output [4:0] RD_D, RS1_D, RS2_D
+);
+    // Đầu ra của từng module nội bộ
+    
+    // Control Unit
+    Control_Unit control (
+        .Op(InstrD[6:0]),
+        .RegWrite(RegWriteD),
+        .ImmSrc(ImmSrcD),
+        .ALUSrc(ALUSrcD),
+        .MemWrite(MemWriteD),
+        .ResultSrc(ResultSrcD),
+        .Branch(BranchD),
+        .funct3(InstrD[14:12]),
+        .funct7(InstrD[31:25]),
+        .ALUControl(ALUControlD)
+    );
+
+    // Register File
+    Register_File rf (
+        .clk(clk),
+        .rst(rst),
+        .WE3(RegWriteW),
+        .WD3(ResultW),
+        .A1(InstrD[19:15]),
+        .A2(InstrD[24:20]),
+        .A3(RD_W),
+        .RD1(RD1_D),
+        .RD2(RD2_D)
+    );
+
+    // Sign Extension
+    Sign_Extend extension (
+        .In(InstrD[31:0]),
+        .Imm_Ext(Imm_Ext_D),
+        .ImmSrc(ImmSrcD)
+    );
+    
+    // Địa chỉ thanh ghi
+    assign RD_D = InstrD[11:7];
+    assign RS1_D = InstrD[19:15];
+    assign RS2_D = InstrD[24:20];
+endmodule

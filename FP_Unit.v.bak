@@ -1,0 +1,52 @@
+// This module is the top-level of the Floating-point Unit
+
+module FP_Unit(in_rs1, in_rs2, out_data, in_FPU_Op, in_addsub_ctrl, in_Clk, in_Rst_N, in_start);
+    input   in_addsub_ctrl, in_Clk, in_Rst_N, in_start;
+    input   [1:0] in_FPU_Op;   // Operation type: 00 - Add/Sub, 01 - Mul, 10 - Div, 11 - Min/Max
+    input   [31:0] in_rs1, in_rs2;
+
+    output  [63:0] out_data;
+
+    // Internal wires
+    wire    [31:0] FP_AddSub_Out, FP_Mul_Out, FP_Div_Out, FP_MinMax_Out;
+    wire    [63:0] wire_1, wire_2, wire_3;
+
+    // Add/Sub module
+    FP_AddSub FP_AddSub_Inst0 (
+        .in_numA(in_rs1),
+        .in_numB(in_rs2),
+        .in_ctrl_addsub(in_addsub_ctrl),
+        .out_data(FP_AddSub_Out)
+    );
+    
+    // Mul module
+    FP_Mul FP_Mul_Vedic_Inst0 (
+        .A(in_rs1),
+        .B(in_rs2),
+        .Mul_Out(FP_Mul_Out)
+    );
+    
+    // Div module
+    FP_Div FP_Div_Inst0 (
+        .in_numA(in_rs1),
+        .in_numB(in_rs2),
+        .in_Clk(in_Clk),
+        .in_Rst_N(in_Rst_N),
+        .in_start(in_start),
+        .out_result(FP_Div_Out)
+    );
+
+    // Min/Max module
+    FP_MinMax FP_MinMax_Inst0 (
+        .in_numA(in_rs1),
+        .in_numB(in_rs2),
+        .out_data(FP_MinMax_Out),
+        .in_ctrl_minmax(in_addsub_ctrl) // Assuming the same control signal is used for min/max
+    );
+
+    // Output selection based on operation
+    assign out_data = (in_FPU_Op == 2'b00) ? {32'd0, FP_AddSub_Out}   : wire_1;
+    assign wire_1   = (in_FPU_Op == 2'b01) ? {32'd0, FP_Mul_Out}      : wire_2;
+    assign wire_2   = (in_FPU_Op == 2'b10) ? {32'd0, FP_Div_Out}      : wire_3;
+    assign wire_3   = (in_FPU_Op == 2'b11) ? {32'd0, FP_MinMax_Out}   : 64'd0;
+endmodule
